@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import {
-  ArrowRight, Phone, MessageCircle, Hammer, Building2, Factory, Home, Construction, Truck,
+  ArrowRight, Phone, MessageCircle, Hammer, Building2, Factory, Home, Construction,
   Wrench, Globe, Smartphone, Code2, Cpu, BarChart3, Cloud, ShieldCheck, Sparkles, Users,
   Layers, CheckCircle2, ChevronDown, Quote, Star, MapPin, Mail,
 } from "lucide-react";
@@ -20,9 +20,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Banisheetla Innovations (BSI) — Innovate • Build • Elevate" },
-      { name: "description", content: "BSI delivers road & building construction, transport services, plus website, app and software development. One company. Endless solutions." },
+      { name: "description", content: "BSI delivers road & building construction, plus website, app and software development. One company. Endless solutions." },
       { property: "og:title", content: "Banisheetla Innovations — Building Tomorrow" },
-      { property: "og:description", content: "Construction, transport and IT solutions under one roof." },
+      { property: "og:description", content: "Construction and IT solutions under one roof." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -90,16 +90,6 @@ const serviceGroups = [
       { icon: Factory, t: "Industrial Projects" },
     ],
   },
-  {
-    title: "Transport & Logistics",
-    blurb: "Material movement done on time, every time.",
-    items: [
-      { icon: Truck, t: "Pickup Services" },
-      { icon: Truck, t: "Material Transportation" },
-      { icon: Layers, t: "Logistics Support" },
-      { icon: CheckCircle2, t: "Timely Delivery" },
-    ],
-  },
 ];
 
 const reasons = [
@@ -114,7 +104,7 @@ const reasons = [
 const projects = [
   { img: projConstruction, cat: "Road Construction", t: "State Highway Resurfacing", d: "12 km arterial road resurfaced and widened.", status: "Completed" },
   { img: projEnterprise, cat: "Building Construction", t: "Commercial Office Block", d: "G+5 mixed-use commercial building delivery.", status: "Ongoing" },
-  { img: projConstruction, cat: "Infrastructure", t: "Industrial Access Roads", d: "Heavy-load access network for a logistics park.", status: "Completed" },
+  { img: projConstruction, cat: "Infrastructure", t: "Industrial Access Roads", d: "Heavy-load access network for an industrial park.", status: "Completed" },
   { img: projDigital, cat: "Technology Projects", t: "Enterprise Web Platform", d: "Customer portal with cloud-native architecture.", status: "Delivered" },
   { img: projEnterprise, cat: "Construction", t: "Site Earthworks & Levelling", d: "JCB & tipper fleet deployed for 40-acre site prep.", status: "Completed" },
   { img: projDigital, cat: "Technology Projects", t: "Mobile App for Field Ops", d: "Native iOS/Android app for field reporting.", status: "Delivered" },
@@ -205,7 +195,7 @@ function HomePage() {
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl lg:text-5xl">Banisheetla Innovations Private Limited</h2>
             <p className="mt-5 text-base text-muted-foreground">
               A diversified company delivering infrastructure development, construction excellence,
-              transportation services and digital technology solutions — all under one roof.
+              digital technology solutions and operational support — all under one roof.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
@@ -225,10 +215,7 @@ function HomePage() {
           <div className="mx-auto max-w-2xl text-center">
             <div className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-gold)]">What We Do</div>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl lg:text-5xl">Comprehensive solutions, end to end</h2>
-            <p className="mt-4 text-muted-foreground">Construction, transport and IT — all delivered by one accountable partner.</p>
-          </div>
-
-          <div className="mt-14 space-y-12">
+              <p className="mt-4 text-muted-foreground">Construction and IT — all delivered by one accountable partner.</p>
             {serviceGroups.map((g) => (
               <div key={g.title}>
                 <div className="mb-6 flex items-end justify-between gap-4">
@@ -440,7 +427,7 @@ function HomePage() {
                 <div className="sm:col-span-2">
                   <Label htmlFor="h-service" className="text-white/85">Service Required</Label>
                   <select id="h-service" required className="mt-2 flex h-9 w-full rounded-md border border-white/20 bg-white/10 px-3 py-1 text-sm text-white">
-                    {["Website / App Development", "IT Consulting", "Road Construction", "Building Construction", "Transport & Pickup", "Other"].map((s) => <option key={s} className="text-foreground">{s}</option>)}
+                    {["Website / App Development", "IT Consulting", "Road Construction", "Building Construction", "Other"].map((s) => <option key={s} className="text-foreground">{s}</option>)}
                   </select>
                 </div>
                 <div className="sm:col-span-2"><Label htmlFor="h-msg" className="text-white/85">Message</Label><Textarea id="h-msg" rows={4} required className="mt-2 border-white/20 bg-white/10 text-white placeholder:text-white/40" placeholder="Tell us about your project…" /></div>

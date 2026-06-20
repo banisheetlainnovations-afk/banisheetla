@@ -6,7 +6,7 @@ import { toast } from "sonner";
 
 const serviceLinks = [
   "Road Construction", "Building Construction", "JCB Services",
-  "Transport Services", "Website Development", "Mobile Apps", "Cloud & Data",
+  "Website Development", "Mobile Apps", "Cloud & Data",
 ];
 
 export function SiteFooter() {
@@ -27,7 +27,7 @@ export function SiteFooter() {
               </div>
             </div>
             <p className="mt-5 max-w-sm text-sm text-white/70">
-              Construction, transport and IT solutions — delivered end-to-end by one accountable partner.
+              Construction and IT solutions — delivered end-to-end by one accountable partner.
             </p>
             <div className="mt-6 flex gap-3">
               {[Linkedin, Facebook, Instagram, Youtube].map((Icon, i) => (

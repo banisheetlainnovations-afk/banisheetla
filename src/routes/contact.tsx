@@ -22,7 +22,7 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-const services = ["Website / App Development", "IT Consulting", "Road Construction", "Building Construction", "Transport & Pickup", "Other"];
+const services = ["Website / App Development", "IT Consulting", "Road Construction", "Building Construction", "Other"];
 
 function ContactPage() {
   const [sending, setSending] = useState(false);

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Construction, Wrench, Home, Building2, Factory, Hammer, Truck, Layers,
+  Construction, Wrench, Home, Building2, Factory, Hammer,
   Globe, Smartphone, Code2, Cpu, BarChart3, Cloud, ArrowRight, CheckCircle2,
 } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
@@ -9,10 +9,10 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Construction, Transport & IT | BSI" },
-      { name: "description", content: "Road & building construction, transport logistics, plus website, app and software development." },
+      { title: "Services — Construction & IT | BSI" },
+      { name: "description", content: "Road & building construction plus website, app and software development." },
       { property: "og:title", content: "Services — Banisheetla Innovations" },
-      { property: "og:description", content: "Construction, transport and IT solutions under one roof." },
+      { property: "og:description", content: "Construction and IT solutions under one roof." },
       { property: "og:url", content: "/services" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
@@ -42,15 +42,6 @@ const groups = [
       { icon: Factory, t: "Industrial Projects", d: "Factories, warehouses and access works." },
     ],
   },
-  {
-    icon: Truck, title: "Transport & Logistics",
-    items: [
-      { icon: Truck, t: "Pickup Services", d: "Quick urban and inter-town pickup." },
-      { icon: Layers, t: "Material Transportation", d: "Cement, steel, bricks and aggregates." },
-      { icon: Layers, t: "Logistics Support", d: "Site-to-site coordination." },
-      { icon: CheckCircle2, t: "Timely Delivery", d: "On-time, every time, fully tracked." },
-    ],
-  },
 ];
 
 function ServicesPage() {
@@ -59,7 +50,7 @@ function ServicesPage() {
       <PageHero
         eyebrow="Innovate • Build • Elevate"
         title="One company. Endless solutions."
-        description="From roads and high-rises to transport and full-stack technology — BSI delivers across every domain you need."
+        description="From roads and high-rises to full-stack technology — BSI delivers across every domain you need."
       />
 
       <section className="mx-auto max-w-7xl space-y-20 px-4 py-20 sm:px-6 lg:px-8">
