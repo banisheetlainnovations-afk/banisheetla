@@ -1,6 +1,39 @@
-import serverModule from '../dist/server/server.js';
+import path from 'path';
+import { pathToFileURL } from 'url';
 
-const serverEntry = serverModule && (serverModule.default ?? serverModule);
+// Attempt several import strategies to be robust in Vercel's runtime
+let serverEntry;
+async function loadServerEntry() {
+  if (serverEntry) return serverEntry;
+  const candidates = [
+    path.join(process.cwd(), 'dist', 'server', 'server.js'),
+    path.join(process.cwd(), 'dist', 'server', 'server.cjs'),
+    path.join(process.cwd(), 'dist', 'server', 'server.mjs'),
+  ];
+  for (const p of candidates) {
+    try {
+      const url = pathToFileURL(p).href;
+      const mod = await import(url);
+      serverEntry = mod && (mod.default ?? mod);
+      console.log('Loaded server entry from', p);
+      return serverEntry;
+    } catch (err) {
+      console.error('Failed to import server entry from', p, err && err.message);
+    }
+  }
+
+  // Fallback: try relative import (older deployments)
+  try {
+    const mod = await import('../dist/server/server.js');
+    serverEntry = mod && (mod.default ?? mod);
+    console.log('Loaded server entry via relative import');
+    return serverEntry;
+  } catch (err) {
+    console.error('Relative import attempt failed:', err && err.message);
+  }
+
+  throw new Error('Could not locate built SSR server entry in dist/server');
+}
 
 function getRawBody(req) {
   return new Promise((resolve, reject) => {
@@ -30,7 +63,8 @@ export default async function handler(req, res) {
       body,
     });
 
-    const response = await serverEntry.fetch(request, {}, {});
+    const entry = await loadServerEntry();
+    const response = await entry.fetch(request, {}, {});
 
     res.statusCode = response.status;
     response.headers.forEach((value, key) => res.setHeader(key, value));
