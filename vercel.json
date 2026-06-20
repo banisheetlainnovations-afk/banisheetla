@@ -5,8 +5,8 @@
     { "src": "api/ssr.js", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/assets/(.*)", "dest": "/dist/client/assets/$1" },
-    { "src": "/(.*\\.(js|css|png|jpg|jpeg|svg|ico|json))", "dest": "/dist/client/$1" },
+    { "handle": "filesystem" },
+    { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/(.*)", "dest": "/api/ssr" }
   ]
 }
