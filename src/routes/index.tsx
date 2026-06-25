@@ -44,9 +44,14 @@ function useInView<T extends HTMLElement>() {
 }
 function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
   const { ref, seen } = useInView<HTMLSpanElement>();
-  const [n, setN] = useState(0);
+  // Always start at the real, final number. This guarantees that on slow
+  // connections, or before JS has hydrated, visitors see "500+" — never "0+".
+  const [n, setN] = useState(to);
   useEffect(() => {
     if (!seen) return;
+    // Once the element is confirmed visible and JS is running, briefly
+    // animate from 0 up to the real number as a polish effect only.
+    setN(0);
     const dur = 1400, start = performance.now();
     const tick = (t: number) => {
       const p = Math.min(1, (t - start) / dur);
@@ -168,9 +173,6 @@ function HomePage() {
               </Button>
               <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-white hover:bg-white/10 hover:text-white">
                 <a href="#projects">View Projects</a>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-[var(--color-gold)]/50 bg-transparent text-[var(--color-gold)] hover:bg-[var(--color-gold)]/10 hover:text-[var(--color-gold)]">
-                <a href="#contact">Contact Us</a>
               </Button>
             </div>
             <dl className="mt-14 grid max-w-3xl grid-cols-2 gap-6 border-t border-white/15 pt-8 sm:grid-cols-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
