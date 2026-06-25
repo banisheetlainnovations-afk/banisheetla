@@ -73,7 +73,7 @@ function ContactPage() {
           >
             <h2 className="font-display text-2xl font-bold">Request a Quote</h2>
             <div className="mt-6 grid gap-5 sm:grid-cols-2">
-              <div><Label htmlFor="c-name">Name</Label><Input id="c-name" required className="mt-2" /></div>
+              <div><Label htmlFor="c-name">Full Name</Label><Input id="c-name" required className="mt-2" /></div>
               <div><Label htmlFor="c-phone">Phone</Label><Input id="c-phone" type="tel" required className="mt-2" /></div>
               <div><Label htmlFor="c-email">Email</Label><Input id="c-email" type="email" required className="mt-2" /></div>
               <div><Label htmlFor="c-company">Company (optional)</Label><Input id="c-company" className="mt-2" /></div>
