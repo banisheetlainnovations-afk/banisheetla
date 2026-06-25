@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Facebook, Instagram, Youtube, Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import { Linkedin, Instagram, Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
@@ -30,8 +30,11 @@ export function SiteFooter() {
               Construction and IT solutions — delivered end-to-end by one accountable partner.
             </p>
             <div className="mt-6 flex gap-3">
-              {[Linkedin, Facebook, Instagram, Youtube].map((Icon, i) => (
-                <a key={i} href="#" aria-label="Social" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition hover:border-[var(--color-gold)]/60 hover:bg-white/5">
+              {[
+                { Icon: Linkedin, href: "https://www.linkedin.com/in/banisheetla-innovations-private-limited-969368411", label: "LinkedIn" },
+                { Icon: Instagram, href: "https://www.instagram.com/bs.innovationsofficial", label: "Instagram" },
+              ].map(({ Icon, href, label }) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition hover:border-[var(--color-gold)]/60 hover:bg-white/5">
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
@@ -81,6 +84,11 @@ export function SiteFooter() {
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/55 sm:flex-row">
           <div>© 2026 Banisheetla Innovations Private Limited. All Rights Reserved.</div>
           <div className="font-semibold uppercase tracking-[0.22em] text-[var(--color-gold)]">Innovate • Build • Elevate</div>
+        </div>
+        <div className="mt-3 flex flex-col items-center justify-center gap-1 text-center text-[11px] text-white/40 sm:flex-row sm:gap-4">
+          <span>CIN: U62090CT2026PTC020047</span>
+          <span className="hidden sm:inline">•</span>
+          <span>GSTIN: 22AAOCB6050G1ZV</span>
         </div>
       </div>
     </footer>
