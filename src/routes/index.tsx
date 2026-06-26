@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { absUrl, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,9 +24,24 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "BSI delivers road & building construction, plus website, app and software development. One company. Endless solutions." },
       { property: "og:title", content: "Banisheetla Innovations — Building Tomorrow" },
       { property: "og:description", content: "Construction and IT solutions under one roof." },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: absUrl("/") },
+      { property: "og:image", content: DEFAULT_OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: absUrl("/") }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
+    ],
   }),
   component: HomePage,
 });
