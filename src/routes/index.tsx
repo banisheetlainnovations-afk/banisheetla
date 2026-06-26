@@ -413,7 +413,7 @@ function HomePage() {
                 <ul className="mt-4 space-y-4 text-sm text-white/85">
                   <li className="flex items-start gap-3"><Phone className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><a href="tel:+919301103436" className="hover:text-[var(--color-gold)]">+91 9301103436</a></li>
                   <li className="flex items-start gap-3"><MessageCircle className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><a href="https://wa.me/919301103436" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-gold)]">WhatsApp +91 9301103436</a></li>
-                  <li className="flex items-start gap-3"><Mail className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><a href="mailto:banisheetlainnovations@gmail.com" className="break-all hover:text-[var(--color-gold)]">banisheetlainnovations@gmail.com</a></li>
+                  <li className="flex items-start gap-3"><Mail className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><a href="mailto:info@banisheetla.com" className="break-all hover:text-[var(--color-gold)]">info@banisheetla.com</a></li>
                   <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><span>H.N. 61, Kunkuri Khurd, Kotchhal, Pratapgarh, Mainpat, Surguja (C.G.), Ambikapur, India 497114</span></li>
                 </ul>
               </div>

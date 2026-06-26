@@ -34,7 +34,7 @@ export const organizationSchema = {
     "@type": "ContactPoint",
     telephone: "+91-9301103436",
     contactType: "customer service",
-    email: "banisheetlainnovations@gmail.com",
+    email: "info@banisheetla.com",
     areaServed: "IN",
   },
   sameAs: [

@@ -64,7 +64,7 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-3 text-sm text-white/75">
               <li className="flex items-start gap-2"><Phone className="mt-0.5 h-4 w-4 text-[var(--color-gold)]" /><a href="tel:+919301103436" className="hover:text-[var(--color-gold)]">+91 9301103436</a></li>
               <li className="flex items-start gap-2"><MessageCircle className="mt-0.5 h-4 w-4 text-[var(--color-gold)]" /><a href="https://wa.me/919301103436" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-gold)]">WhatsApp</a></li>
-              <li className="flex items-start gap-2"><Mail className="mt-0.5 h-4 w-4 text-[var(--color-gold)]" /><a href="mailto:banisheetlainnovations@gmail.com" className="break-all hover:text-[var(--color-gold)]">banisheetlainnovations@gmail.com</a></li>
+              <li className="flex items-start gap-2"><Mail className="mt-0.5 h-4 w-4 text-[var(--color-gold)]" /><a href="mailto:info@banisheetla.com" className="break-all hover:text-[var(--color-gold)]">info@banisheetla.com</a></li>
               <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 text-[var(--color-gold)]" /><span>Kunkuri Khurd, Mainpat, Surguja (C.G.) 497114</span></li>
             </ul>
 

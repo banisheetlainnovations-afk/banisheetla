@@ -40,7 +40,7 @@ function ContactPage() {
               <p className="mt-2 text-sm text-muted-foreground">Banisheetla Innovations Private Limited</p>
               <ul className="mt-6 space-y-4 text-sm">
                 <li className="flex items-start gap-3"><Phone className="mt-0.5 h-5 w-5 text-accent" /><a href="tel:+919301103436" className="hover:text-primary">+91 9301103436</a></li>
-                <li className="flex items-start gap-3"><Mail className="mt-0.5 h-5 w-5 text-accent" /><a href="mailto:banisheetlainnovations@gmail.com" className="break-all hover:text-primary">banisheetlainnovations@gmail.com</a></li>
+                <li className="flex items-start gap-3"><Mail className="mt-0.5 h-5 w-5 text-accent" /><a href="mailto:info@banisheetla.com" className="break-all hover:text-primary">info@banisheetla.com</a></li>
                 <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-5 w-5 text-accent" /><span>H.N. 61, Kunkuri Khurd, Kotchhal, Pratapgarh, Mainpat, Surguja (C.G.), Ambikapur, India 497114</span></li>
               </ul>
               <a
