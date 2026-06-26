@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Target, Eye, Heart, Lightbulb, Users, Award, ShieldCheck, HandshakeIcon } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import aboutImg from "@/assets/about.jpg";
+import { absUrl, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -10,9 +11,10 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Learn about Banisheetla Innovations: our mission, vision, and core values driving technology and construction excellence." },
       { property: "og:title", content: "About Banisheetla Innovations" },
       { property: "og:description", content: "Our mission, vision, and the values that guide our work." },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: absUrl("/about") },
+      { property: "og:image", content: DEFAULT_OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: absUrl("/about") }],
   }),
   component: AboutPage,
 });
