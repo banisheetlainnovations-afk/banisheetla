@@ -3,6 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import enterpriseImg from "@/assets/project-enterprise.jpg";
 import constructionImg from "@/assets/project-construction.jpg";
 import digitalImg from "@/assets/project-digital.jpg";
+import { absUrl, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -11,9 +12,10 @@ export const Route = createFileRoute("/projects")({
       { name: "description", content: "Featured projects across enterprise technology, construction, and digital transformation." },
       { property: "og:title", content: "Featured Projects — Banisheetla Innovations" },
       { property: "og:description", content: "A selection of our work across technology and infrastructure." },
-      { property: "og:url", content: "/projects" },
+      { property: "og:url", content: absUrl("/projects") },
+      { property: "og:image", content: DEFAULT_OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/projects" }],
+    links: [{ rel: "canonical", href: absUrl("/projects") }],
   }),
   component: ProjectsPage,
 });
