@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Calendar, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
+import { absUrl, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
@@ -9,9 +10,10 @@ export const Route = createFileRoute("/blog")({
       { name: "description", content: "Latest insights on digital transformation, construction trends, ServiceNow, AI and project management." },
       { property: "og:title", content: "Insights — Banisheetla Innovations" },
       { property: "og:description", content: "Trends and analysis across technology and construction." },
-      { property: "og:url", content: "/blog" },
+      { property: "og:url", content: absUrl("/blog") },
+      { property: "og:image", content: DEFAULT_OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/blog" }],
+    links: [{ rel: "canonical", href: absUrl("/blog") }],
   }),
   component: BlogPage,
 });
