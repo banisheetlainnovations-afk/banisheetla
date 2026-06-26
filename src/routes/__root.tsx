@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { DEFAULT_OG_IMAGE, organizationSchema } from "../lib/seo";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
 import { FloatingActions } from "../components/FloatingActions";
@@ -83,16 +84,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Banisheetla Innovations — Digital Excellence & Infrastructure" },
       { name: "description", content: "Banisheetla Innovations Private Limited delivers IT consulting, digital transformation, and construction services for enterprises, governments, and SMBs." },
+      { property: "og:site_name", content: "Banisheetla Innovations" },
       { property: "og:title", content: "Banisheetla Innovations Private Limited" },
       { property: "og:description", content: "IT consulting, digital transformation, and construction services. Diverse. Innovative. Connected." },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: DEFAULT_OG_IMAGE },
+      { property: "og:image:width", content: "742" },
+      { property: "og:image:height", content: "747" },
+      { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Banisheetla Innovations Private Limited" },
+      { name: "twitter:description", content: "IT consulting, digital transformation, and construction services. Diverse. Innovative. Connected." },
+      { name: "twitter:image", content: DEFAULT_OG_IMAGE },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" },
+      { rel: "icon", href: "/bsi-logo.png" },
+    ],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(organizationSchema) },
     ],
   }),
   shellComponent: RootShell,
