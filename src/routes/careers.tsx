@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { absUrl, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/careers")({
   head: () => ({
@@ -15,9 +16,10 @@ export const Route = createFileRoute("/careers")({
       { name: "description", content: "Explore career opportunities at Banisheetla Innovations. We hire across technology, construction, and project management." },
       { property: "og:title", content: "Careers at Banisheetla Innovations" },
       { property: "og:description", content: "Great people create great solutions. Join our team." },
-      { property: "og:url", content: "/careers" },
+      { property: "og:url", content: absUrl("/careers") },
+      { property: "og:image", content: DEFAULT_OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/careers" }],
+    links: [{ rel: "canonical", href: absUrl("/careers") }],
   }),
   component: CareersPage,
 });
