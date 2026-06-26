@@ -5,17 +5,19 @@ import {
 } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
+import { absUrl, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Construction & IT | BSI" },
-      { name: "description", content: "Road & building construction plus website, app and software development." },
+      { title: "Our Services — Construction, Web & Software Development | BSI" },
+      { name: "description", content: "Road & building construction, equipment hire, website development, mobile apps, software, IT consulting, and cloud & data services — all from one accountable team." },
       { property: "og:title", content: "Services — Banisheetla Innovations" },
-      { property: "og:description", content: "Construction and IT solutions under one roof." },
-      { property: "og:url", content: "/services" },
+      { property: "og:description", content: "Explore BSI's construction and technology service lines, from road building to custom software." },
+      { property: "og:url", content: absUrl("/services") },
+      { property: "og:image", content: DEFAULT_OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: absUrl("/services") }],
   }),
   component: ServicesPage,
 });
