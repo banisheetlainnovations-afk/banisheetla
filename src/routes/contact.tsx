@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { absUrl, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -15,9 +16,10 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Get in touch with Banisheetla Innovations Private Limited. Service inquiries, partnerships, and general questions." },
       { property: "og:title", content: "Contact Banisheetla Innovations" },
       { property: "og:description", content: "Reach our team for service inquiries and consultations." },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: absUrl("/contact") },
+      { property: "og:image", content: DEFAULT_OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: absUrl("/contact") }],
   }),
   component: ContactPage,
 });
