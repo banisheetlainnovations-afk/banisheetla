@@ -7,12 +7,12 @@ import { toast } from "sonner";
 const serviceLinks = [
   { label: "ServiceNow Consulting", slug: "servicenow-consulting" },
   { label: "AI Solutions", slug: "ai-solutions" },
+  { label: "Software Development", slug: "software-development" },
+  { label: "IT Consulting", slug: "it-consulting" },
   { label: "Road Construction", slug: "road-construction" },
-  { label: "Building Construction", slug: "residential-construction" },
-  { label: "JCB & Equipment Hire", slug: "equipment-hire" },
-  { label: "Website Development", slug: "website-development" },
-  { label: "Mobile Apps", slug: "mobile-app-development" },
-  { label: "Cloud & Data", slug: "cloud-data-management" },
+  { label: "Residential Construction", slug: "residential-construction" },
+  { label: "Commercial Construction", slug: "commercial-construction" },
+  { label: "Industrial Projects", slug: "industrial-projects" },
 ];
 
 export function SiteFooter() {

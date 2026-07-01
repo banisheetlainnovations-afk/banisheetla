@@ -119,22 +119,22 @@ const projects = [
   { img: projEnterprise, cat: "Building Construction", t: "Commercial Office Block", d: "G+5 mixed-use commercial building delivery.", status: "Ongoing" },
   { img: projConstruction, cat: "Infrastructure", t: "Industrial Access Roads", d: "Heavy-load access network for an industrial park.", status: "Completed" },
   { img: projDigital, cat: "Technology Projects", t: "Enterprise Web Platform", d: "Customer portal with cloud-native architecture.", status: "Delivered" },
-  { img: projEnterprise, cat: "Construction", t: "Site Earthworks & Levelling", d: "JCB & tipper fleet deployed for 40-acre site prep.", status: "Completed" },
+  { img: projEnterprise, cat: "Construction", t: "Site Earthworks & Levelling", d: "Heavy machinery deployed for 40-acre industrial site preparation.", status: "Completed" },
   { img: projDigital, cat: "Technology Projects", t: "Mobile App for Field Ops", d: "Native iOS/Android app for field reporting.", status: "Delivered" },
 ];
 
 const testimonials = [
   { n: "Rajesh Sharma", r: "Director, Sharma Realty", q: "BSI delivered our G+4 commercial block ahead of schedule. Quality and communication were exceptional.", a: "RS" },
   { n: "Anita Verma", r: "CEO, NextLeaf Retail", q: "Their team built our e-commerce platform end-to-end. Modern, fast and reliable — exactly what we needed.", a: "AV" },
-  { n: "Pradeep Singh", r: "PWD Contractor", q: "Their JCB and tipper services are dependable — operators arrive on time and the equipment is well-maintained.", a: "PS" },
+  { n: "Pradeep Singh", r: "PWD Contractor", q: "BSI's road construction team delivered the site on time and within spec. Reliable execution from start to finish.", a: "PS" },
   { n: "Dr. Meera Iyer", r: "Founder, CareFirst Clinics", q: "From the clinic building to our patient app, BSI handled everything. True end-to-end partner.", a: "MI" },
 ];
 
 const faqs = [
-  { q: "What types of construction projects does BSI handle?", a: "Road construction, residential, commercial and industrial buildings, plus repair and maintenance work — at any scale." },
-  { q: "Can I hire JCB, tractor or tipper services separately?", a: "Yes. Equipment and operators are available on a per-day or per-project basis. Contact us with site details for a quote." },
-  { q: "Do you build websites and mobile apps too?", a: "Absolutely. Our IT division builds websites, native mobile apps, custom software, and provides digital marketing and cloud services." },
-  { q: "How long does a typical project take?", a: "Timelines depend on scope. Small renovations and websites can be 2–6 weeks; full building or app builds run 3–12 months. We share a detailed schedule before signing." },
+  { q: "What types of construction projects does BSI handle?", a: "Road construction, residential, commercial and industrial buildings — at any scale, from planning through to handover." },
+  { q: "Do you offer ServiceNow and AI services?", a: "Yes. Our IT division specialises in ServiceNow implementation and configuration, and AI-driven automation and analytics solutions for enterprises." },
+  { q: "What IT services does BSI provide?", a: "We offer ServiceNow consulting, AI solutions, custom software development, and IT consulting & support." },
+  { q: "How long does a typical project take?", a: "Timelines depend on scope. Small software builds can be 2–6 weeks; full building or enterprise platform builds run 3–12 months. We share a detailed schedule before signing." },
   { q: "How is pricing decided?", a: "We provide free, itemized quotes based on scope, materials, equipment and timeline — no hidden charges." },
   { q: "Do you provide support after delivery?", a: "Yes — construction projects come with defect-liability warranty; software projects include support and maintenance plans." },
 ];
@@ -350,8 +350,8 @@ function HomePage() {
             </h2>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {[
-                "Website Development", "Mobile App Development", "Custom Software",
-                "IT Consulting & Support", "Digital Marketing & SEO", "Cloud & Data Management",
+                "ServiceNow Consulting", "AI Solutions",
+                "Software Development", "IT Consulting & Support",
               ].map((i) => (
                 <li key={i} className="flex items-center gap-2 text-sm text-white/85">
                   <CheckCircle2 className="h-4 w-4 text-[var(--color-gold)]" /> {i}
@@ -466,7 +466,7 @@ function HomePage() {
                 <div className="sm:col-span-2">
                   <Label htmlFor="h-service" className="text-white/85">Service Required</Label>
                   <select id="h-service" required className="mt-2 flex h-9 w-full rounded-md border border-white/20 bg-white/10 px-3 py-1 text-sm text-white">
-                    {["Website / App Development", "IT Consulting", "Road Construction", "Building Construction", "Other"].map((s) => <option key={s} className="text-foreground">{s}</option>)}
+                    {["ServiceNow Consulting", "AI Solutions", "Software Development", "IT Consulting", "Road Construction", "Residential Construction", "Commercial Construction", "Industrial Projects", "Other"].map((s) => <option key={s} className="text-foreground">{s}</option>)}
                   </select>
                 </div>
                 <div className="sm:col-span-2"><Label htmlFor="h-msg" className="text-white/85">Message</Label><Textarea id="h-msg" rows={4} required className="mt-2 border-white/20 bg-white/10 text-white placeholder:text-white/40" placeholder="Tell us about your project…" /></div>

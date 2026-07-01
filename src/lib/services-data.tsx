@@ -1,7 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Construction, Wrench, Home, Building2, Factory, Truck,
-  Globe, Smartphone, Code2, Cpu, BarChart3, Cloud, Workflow, Sparkles,
+  Construction, Wrench, Home, Building2, Factory,
+  Code2, Cpu, Workflow, Sparkles,
 } from "lucide-react";
 
 export interface ServiceFaq {
@@ -86,64 +86,6 @@ export const services: ServiceDetail[] = [
     ],
   },
   {
-    slug: "website-development",
-    category: "IT Services",
-    icon: Globe,
-    title: "Website Development",
-    tagline: "Marketing sites, client portals, and ecommerce — built fast and built right.",
-    metaTitle: "Website Development Services | Banisheetla Innovations",
-    metaDescription: "Custom website development including marketing sites, client portals, and ecommerce stores, built on modern, fast, SEO-friendly technology.",
-    overview: "From a marketing site that actually converts visitors to a client portal your team relies on daily, we build websites on modern, fast technology rather than templated builders that slow you down later.",
-    whatsIncluded: [
-      "Marketing and corporate websites",
-      "Client/customer portals with login and dashboards",
-      "Ecommerce stores with payment integration",
-      "SEO-friendly architecture from day one (not bolted on afterward)",
-      "Content management so your team can update pages without a developer",
-      "Ongoing maintenance and hosting support",
-    ],
-    whoItsFor: "Businesses that need a site that loads fast, ranks well, and doesn't require a developer for every small text change.",
-    process: [
-      { step: "Discovery", detail: "Understanding your goals, audience, and what the site actually needs to do for your business." },
-      { step: "Design", detail: "Wireframes and visual design reviewed with you before any code is written." },
-      { step: "Build", detail: "Development on a modern, fast stack with SEO and mobile responsiveness built in." },
-      { step: "Launch & support", detail: "Go-live, plus ongoing support as content and traffic grow." },
-    ],
-    faqs: [
-      { q: "Will I be able to update the website myself afterward?", a: "Yes — we set up a content management approach so routine updates don't require a developer." },
-      { q: "Do you handle hosting and domain setup too?", a: "Yes, we can manage hosting, domain, and SSL setup, or work with your existing provider." },
-    ],
-  },
-  {
-    slug: "mobile-app-development",
-    category: "IT Services",
-    icon: Smartphone,
-    title: "Mobile App Development",
-    tagline: "Native and cross-platform apps for iOS and Android.",
-    metaTitle: "Mobile App Development Services | Banisheetla Innovations",
-    metaDescription: "Native and cross-platform mobile app development for iOS and Android, from MVP builds to full-featured production apps.",
-    overview: "We build mobile apps that match what your business actually needs — sometimes that's a lean cross-platform app to validate an idea quickly, sometimes it's a fully native build for performance-critical features.",
-    whatsIncluded: [
-      "Cross-platform development (single codebase for iOS and Android)",
-      "Native development where performance or platform-specific features demand it",
-      "Backend API development to power the app",
-      "Push notifications, in-app payments, and offline support",
-      "App Store / Play Store submission and release management",
-      "Post-launch updates and maintenance",
-    ],
-    whoItsFor: "Businesses launching a new app idea, or replacing an aging app that's become expensive to maintain.",
-    process: [
-      { step: "Scoping", detail: "Defining the core features that matter for launch versus what can come later." },
-      { step: "Design & prototype", detail: "Clickable prototypes so you can see and test the flow before development starts." },
-      { step: "Development", detail: "Iterative builds with regular check-ins, not a single big reveal at the end." },
-      { step: "Launch & iterate", detail: "Store submission, then updates based on real user feedback." },
-    ],
-    faqs: [
-      { q: "Cross-platform or native — which do we need?", a: "Most apps do well cross-platform; we recommend native only when performance or specific device features genuinely require it." },
-      { q: "Can you take over an existing app codebase?", a: "Yes, we regularly take over and stabilize existing apps before adding new features." },
-    ],
-  },
-  {
     slug: "software-development",
     category: "IT Services",
     icon: Code2,
@@ -201,64 +143,6 @@ export const services: ServiceDetail[] = [
       { q: "Will you push us toward your own development services?", a: "Our recommendations are based on what actually solves your problem; if that means a smaller fix instead of a big build, we'll say so." },
     ],
   },
-  {
-    slug: "digital-marketing-seo",
-    category: "IT Services",
-    icon: BarChart3,
-    title: "Digital Marketing & SEO",
-    tagline: "Performance marketing and search optimization that's measured, not guessed.",
-    metaTitle: "Digital Marketing & SEO Services | Banisheetla Innovations",
-    metaDescription: "Digital marketing and SEO services including technical SEO, content strategy, and performance marketing campaigns measured against real business outcomes.",
-    overview: "Marketing that's measured against real outcomes — qualified leads and search visibility — rather than vanity metrics that look good in a slide but don't move the business.",
-    whatsIncluded: [
-      "Technical SEO audits and fixes",
-      "On-page and content SEO strategy",
-      "Local SEO for region-specific visibility",
-      "Paid campaign setup and management",
-      "Analytics and conversion tracking setup",
-      "Monthly reporting tied to actual leads, not just traffic",
-    ],
-    whoItsFor: "Businesses with a website already live that isn't generating the inquiries it should.",
-    process: [
-      { step: "Audit", detail: "A full technical and content review of where you currently stand." },
-      { step: "Strategy", detail: "A prioritized plan focused on the fixes and content with the highest expected impact." },
-      { step: "Execution", detail: "Implementation of technical fixes, content, and/or paid campaigns." },
-      { step: "Reporting", detail: "Monthly reporting tied to leads and rankings, not just page views." },
-    ],
-    faqs: [
-      { q: "How long before we see SEO results?", a: "Technical fixes can show impact within weeks; meaningful ranking movement for competitive terms typically takes a few months." },
-      { q: "Do you write the content too, or just the strategy?", a: "Both — we can handle strategy only, or full execution including content production." },
-    ],
-  },
-  {
-    slug: "cloud-data-management",
-    category: "IT Services",
-    icon: Cloud,
-    title: "Cloud & Data Management",
-    tagline: "Cloud migration, infrastructure, and data operations done without the downtime.",
-    metaTitle: "Cloud & Data Management Services | Banisheetla Innovations",
-    metaDescription: "Cloud migration, infrastructure setup, and data management services across AWS, Azure, and GCP, planned to minimize downtime and risk.",
-    overview: "Moving to the cloud — or fixing a cloud setup that's grown messy — without surprise downtime or runaway costs. We plan the migration, then keep the data flowing reliably afterward.",
-    whatsIncluded: [
-      "Cloud migration planning and execution (AWS, Azure, GCP)",
-      "Infrastructure setup and cost optimization",
-      "Database design, management, and backups",
-      "Data pipeline setup for reporting and analytics",
-      "Security and access control configuration",
-      "Ongoing monitoring and support",
-    ],
-    whoItsFor: "Teams migrating off legacy on-premise infrastructure, or whose existing cloud bill and setup have both gotten out of hand.",
-    process: [
-      { step: "Assessment", detail: "Reviewing current infrastructure, costs, and risk points." },
-      { step: "Migration plan", detail: "A staged plan that avoids a single risky cutover." },
-      { step: "Execution", detail: "Migration carried out in phases, tested at each step." },
-      { step: "Optimize & support", detail: "Ongoing cost and performance tuning after go-live." },
-    ],
-    faqs: [
-      { q: "Can you work with our existing cloud provider, or do we need to switch?", a: "We typically work within your existing provider (AWS, Azure, or GCP) rather than forcing a switch." },
-      { q: "What if migration causes downtime for our users?", a: "We plan migrations in phases specifically to avoid single points of failure and minimize downtime." },
-    ],
-  },
 
   // ---------- Construction Services ----------
   {
@@ -288,35 +172,6 @@ export const services: ServiceDetail[] = [
     faqs: [
       { q: "Do you handle government tender projects?", a: "Yes, we execute government and PWD-class road projects with full project documentation." },
       { q: "Can you take on resurfacing-only projects, not just new construction?", a: "Yes, repair and resurfacing of existing roads is a regular part of our work." },
-    ],
-  },
-  {
-    slug: "repair-maintenance",
-    category: "Construction Services",
-    icon: Wrench,
-    title: "Repair & Maintenance",
-    tagline: "Patchwork, structural repair, and ongoing upkeep for existing structures.",
-    metaTitle: "Building Repair & Maintenance Services | Banisheetla Innovations",
-    metaDescription: "Structural repair and maintenance services for residential, commercial, and industrial buildings, including patchwork, waterproofing, and upkeep contracts.",
-    overview: "Keeping existing structures sound rather than letting small issues become expensive ones — structural repair, patchwork, and ongoing maintenance contracts.",
-    whatsIncluded: [
-      "Structural repair and reinforcement",
-      "Waterproofing and damp-related fixes",
-      "Patchwork and surface restoration",
-      "Periodic maintenance contracts",
-      "Pre-monsoon and post-monsoon inspections",
-      "Emergency repair response",
-    ],
-    whoItsFor: "Property owners and facility managers needing reliable, scheduled upkeep rather than reactive emergency fixes only.",
-    process: [
-      { step: "Inspection", detail: "Assessing the structure and identifying root causes, not just visible symptoms." },
-      { step: "Repair plan", detail: "A scoped plan with priority issues flagged first." },
-      { step: "Execution", detail: "Repairs carried out with minimal disruption to occupants." },
-      { step: "Ongoing care", detail: "Optional maintenance contract for periodic checks." },
-    ],
-    faqs: [
-      { q: "Do you offer ongoing maintenance contracts, or only one-off repairs?", a: "Both — we offer scheduled maintenance contracts as well as one-time repair jobs." },
-      { q: "Can you respond to urgent/emergency repairs?", a: "Yes, emergency repair response is part of our maintenance services." },
     ],
   },
   {
@@ -404,35 +259,6 @@ export const services: ServiceDetail[] = [
     faqs: [
       { q: "Can you handle heavy-load flooring requirements for machinery?", a: "Yes, structural work is scoped around your actual equipment and load requirements." },
       { q: "Do you also build the access roads and yard infrastructure?", a: "Yes, access and yard works are typically scoped as part of the same project." },
-    ],
-  },
-  {
-    slug: "equipment-hire",
-    category: "Construction Services",
-    icon: Truck,
-    title: "JCB & Equipment Hire",
-    tagline: "Excavators, JCBs, and heavy equipment hire for construction projects of any size.",
-    metaTitle: "JCB & Heavy Equipment Hire Services | Banisheetla Innovations",
-    metaDescription: "JCB and heavy equipment hire services including excavators and earthmoving machinery, with operators, for construction and infrastructure projects.",
-    overview: "Heavy equipment hire for projects that need machinery without the overhead of owning it — JCBs and earthmoving equipment, available with experienced operators.",
-    whatsIncluded: [
-      "JCB and excavator hire",
-      "Earthmoving and site-clearing equipment",
-      "Experienced operator availability",
-      "Flexible short-term and long-term hire terms",
-      "Equipment maintenance handled by us, not you",
-      "On-site support for hired equipment",
-    ],
-    whoItsFor: "Contractors and project owners needing heavy machinery for a defined period without a capital purchase.",
-    process: [
-      { step: "Requirement check", detail: "Confirming the right equipment and operator setup for your site." },
-      { step: "Scheduling", detail: "Booking equipment and operators around your project timeline." },
-      { step: "On-site deployment", detail: "Equipment delivered and operational on schedule." },
-      { step: "Support", detail: "Ongoing on-site support for the hire duration." },
-    ],
-    faqs: [
-      { q: "Do you provide operators with the equipment, or just the machinery?", a: "Operators are available alongside the equipment if you need them." },
-      { q: "Can equipment be hired for short-term projects?", a: "Yes, we offer both short-term and long-term hire arrangements." },
     ],
   },
 ];
