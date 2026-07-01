@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
-import enterpriseImg from "@/assets/project-enterprise.jpg";
-import constructionImg from "@/assets/project-construction.jpg";
-import digitalImg from "@/assets/project-digital.jpg";
+import enterpriseImg from "@/assets/project-enterprise.webp";
+import constructionImg from "@/assets/project-construction.webp";
+import digitalImg from "@/assets/project-digital.webp";
 import { absUrl, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/projects")({

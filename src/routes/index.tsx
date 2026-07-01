@@ -1,21 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
-  ArrowRight, Phone, MessageCircle, Hammer, Building2, Factory, Home, Construction,
-  Wrench, Globe, Smartphone, Code2, Cpu, BarChart3, Cloud, ShieldCheck, Sparkles, Users,
+  ArrowRight, Phone, MessageCircle, ShieldCheck, Sparkles, Users,
   Layers, CheckCircle2, ChevronDown, Quote, Star, MapPin, Mail,
+  PhoneCall, ClipboardCheck, Rocket, LifeBuoy,
 } from "lucide-react";
-import heroBg from "@/assets/hero-construction.jpg";
-import techIllustration from "@/assets/tech-illustration.jpg";
-import projConstruction from "@/assets/project-construction.jpg";
-import projDigital from "@/assets/project-digital.jpg";
-import projEnterprise from "@/assets/project-enterprise.jpg";
+import heroBg from "@/assets/hero-construction.webp";
+import techIllustration from "@/assets/tech-illustration.webp";
+import projConstruction from "@/assets/project-construction.webp";
+import projDigital from "@/assets/project-digital.webp";
+import projEnterprise from "@/assets/project-enterprise.webp";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { absUrl, DEFAULT_OG_IMAGE } from "@/lib/seo";
+import { services } from "@/lib/services-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,7 +28,10 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: absUrl("/") },
       { property: "og:image", content: DEFAULT_OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: absUrl("/") }],
+    links: [
+      { rel: "canonical", href: absUrl("/") },
+      { rel: "preload", as: "image", href: heroBg, fetchPriority: "high" },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -57,6 +61,15 @@ function useInView<T extends HTMLElement>() {
     return () => io.disconnect();
   }, [seen]);
   return { ref, seen };
+}
+/** Fades + lifts content into place the first time it scrolls into view. */
+function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {
+  const { ref, seen } = useInView<HTMLDivElement>();
+  return (
+    <div ref={ref} className={`${className} transition-all duration-700 ease-out ${seen ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
+      {children}
+    </div>
+  );
 }
 function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
   const { ref, seen } = useInView<HTMLSpanElement>();
@@ -88,29 +101,8 @@ const heroStats = [
 ];
 
 const serviceGroups = [
-  {
-    title: "IT Services",
-    blurb: "Software that scales with your business.",
-    items: [
-      { icon: Globe, t: "Website Development" },
-      { icon: Smartphone, t: "Mobile App Development" },
-      { icon: Code2, t: "Software Development" },
-      { icon: Cpu, t: "IT Consulting" },
-      { icon: BarChart3, t: "Digital Marketing & SEO" },
-      { icon: Cloud, t: "Cloud & Data Management" },
-    ],
-  },
-  {
-    title: "Construction Services",
-    blurb: "From highways to high-rises — engineered to last.",
-    items: [
-      { icon: Construction, t: "Road Construction" },
-      { icon: Wrench, t: "Repair & Maintenance" },
-      { icon: Home, t: "Residential Construction" },
-      { icon: Building2, t: "Commercial Construction" },
-      { icon: Factory, t: "Industrial Projects" },
-    ],
-  },
+  { title: "IT Services" as const, blurb: "Software that scales with your business." },
+  { title: "Construction Services" as const, blurb: "From highways to high-rises — engineered to last." },
 ];
 
 const reasons = [
@@ -166,7 +158,7 @@ function HomePage() {
     <>
       {/* HERO */}
       <section className="relative isolate overflow-hidden">
-        <img src={heroBg} alt="BSI construction and technology" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroBg} alt="BSI construction and technology" width={1920} height={1080} fetchPriority="high" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.14_0.05_255)]/95 via-[oklch(0.18_0.07_240)]/85 to-[oklch(0.22_0.09_220)]/70" />
         <div className="relative mx-auto flex min-h-[720px] max-w-7xl flex-col justify-center px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <div className="max-w-4xl">
@@ -243,17 +235,17 @@ function HomePage() {
                   </div>
                 </div>
                 <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {g.items.map((it) => (
-                    <div key={it.t} className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-card transition hover:-translate-y-1 hover:shadow-elegant">
+                  {services.filter((s) => s.category === g.title).map((s) => (
+                    <Link key={s.slug} to="/services/$slug" params={{ slug: s.slug }} className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-card transition hover:-translate-y-1 hover:shadow-elegant">
                       <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-primary opacity-10 transition group-hover:scale-150" />
                       <div className="relative inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground">
-                        <it.icon className="h-6 w-6" />
+                        <s.icon className="h-6 w-6" />
                       </div>
-                      <h4 className="relative mt-4 text-base font-semibold">{it.t}</h4>
-                      <Link to="/contact" className="relative mt-3 inline-flex items-center gap-1 text-xs font-medium text-primary opacity-0 transition group-hover:opacity-100">
+                      <h4 className="relative mt-4 text-base font-semibold">{s.title}</h4>
+                      <span className="relative mt-3 inline-flex items-center gap-1 text-xs font-medium text-primary opacity-0 transition group-hover:opacity-100">
                         Learn more <ArrowRight className="h-3 w-3" />
-                      </Link>
-                    </div>
+                      </span>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -264,10 +256,10 @@ function HomePage() {
 
       {/* WHY CHOOSE US */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="text-center">
+        <Reveal className="text-center">
           <div className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-gold)]">Why Choose Us</div>
           <h2 className="mt-3 text-3xl font-bold sm:text-4xl lg:text-5xl">Trusted by businesses and contractors</h2>
-        </div>
+        </Reveal>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map((r) => (
             <div key={r.t} className="rounded-2xl border border-border bg-card p-6 shadow-card transition hover:border-[var(--color-gold)]/40">
@@ -276,6 +268,35 @@ function HomePage() {
               <p className="mt-2 text-sm text-muted-foreground">{r.d}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="bg-gradient-subtle py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-gold)]">How We Work</div>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl lg:text-5xl">A clear process, start to finish</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">Whether it's a construction site or a software build, every engagement follows the same accountable process.</p>
+          </div>
+          <div className="relative mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="absolute left-0 right-0 top-7 hidden h-px bg-border lg:block" aria-hidden="true" />
+            {[
+              { icon: PhoneCall, t: "Consultation", d: "We understand your goals, site, or system requirements in detail." },
+              { icon: ClipboardCheck, t: "Planning & Quote", d: "A transparent scope, timeline, and quotation — no hidden surprises." },
+              { icon: Rocket, t: "Execution", d: "Our engineers, operators, and developers deliver to plan." },
+              { icon: LifeBuoy, t: "Delivery & Support", d: "Handover with documentation, plus ongoing support after launch." },
+            ].map((step, i) => (
+              <div key={step.t} className="relative rounded-2xl border border-border bg-card p-6 shadow-card">
+                <div className="relative z-10 inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-primary text-primary-foreground shadow-elegant">
+                  <step.icon className="h-6 w-6" />
+                </div>
+                <div className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold)]">Step {i + 1}</div>
+                <h3 className="mt-1 text-lg font-semibold">{step.t}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{step.d}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -350,10 +371,10 @@ function HomePage() {
 
       {/* TESTIMONIALS */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <div className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-gold)]">Clients Speak</div>
           <h2 className="mt-3 text-3xl font-bold sm:text-4xl lg:text-5xl">What our clients say</h2>
-        </div>
+        </Reveal>
         <div className="relative mx-auto mt-12 max-w-4xl">
           <div className="rounded-3xl border border-border bg-card p-8 shadow-card sm:p-12">
             <Quote className="h-10 w-10 text-[var(--color-gold)]" />
@@ -380,10 +401,10 @@ function HomePage() {
       {/* FAQ */}
       <section className="bg-gradient-subtle py-20 lg:py-28">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+          <Reveal className="text-center">
             <div className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-gold)]">FAQ</div>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl lg:text-5xl">Questions, answered</h2>
-          </div>
+          </Reveal>
           <div className="mt-10 space-y-3">
             {faqs.map((f, i) => (
               <div key={f.q} className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">

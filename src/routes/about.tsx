@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Target, Eye, Heart, Lightbulb, Users, Award, ShieldCheck, HandshakeIcon } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import aboutImg from "@/assets/about.jpg";
+import aboutImg from "@/assets/about.webp";
 import { absUrl, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({

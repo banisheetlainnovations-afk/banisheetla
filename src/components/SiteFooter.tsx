@@ -5,8 +5,14 @@ import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 
 const serviceLinks = [
-  "Road Construction", "Building Construction", "JCB Services",
-  "Website Development", "Mobile Apps", "Cloud & Data",
+  { label: "ServiceNow Consulting", slug: "servicenow-consulting" },
+  { label: "AI Solutions", slug: "ai-solutions" },
+  { label: "Road Construction", slug: "road-construction" },
+  { label: "Building Construction", slug: "residential-construction" },
+  { label: "JCB & Equipment Hire", slug: "equipment-hire" },
+  { label: "Website Development", slug: "website-development" },
+  { label: "Mobile Apps", slug: "mobile-app-development" },
+  { label: "Cloud & Data", slug: "cloud-data-management" },
 ];
 
 export function SiteFooter() {
@@ -55,7 +61,7 @@ export function SiteFooter() {
           <div className="lg:col-span-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-gold)]">Services</h4>
             <ul className="mt-4 space-y-2.5 text-sm text-white/75">
-              {serviceLinks.map((s) => <li key={s}><Link to="/services" className="hover:text-[var(--color-gold)]">{s}</Link></li>)}
+              {serviceLinks.map((s) => <li key={s.slug}><Link to="/services/$slug" params={{ slug: s.slug }} className="hover:text-[var(--color-gold)]">{s.label}</Link></li>)}
             </ul>
           </div>
 
