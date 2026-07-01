@@ -24,7 +24,7 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-const services = ["Website / App Development", "IT Consulting", "Road Construction", "Building Construction", "Other"];
+const services = ["ServiceNow Consulting", "AI Solutions", "Software Development", "IT Consulting", "Road Construction", "Residential Construction", "Government Projects", "Industrial Projects", "Other"];
 
 function ContactPage() {
   const [sending, setSending] = useState(false);

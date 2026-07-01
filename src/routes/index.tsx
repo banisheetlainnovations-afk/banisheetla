@@ -313,6 +313,7 @@ function HomePage() {
                 <button
                   key={c}
                   onClick={() => setActiveCat(c)}
+                  aria-pressed={activeCat === c}
                   className={`rounded-full border px-4 py-1.5 text-sm font-medium transition ${activeCat === c ? "border-primary bg-primary text-primary-foreground" : "border-border bg-background hover:border-primary/40"}`}
                 >
                   {c}
@@ -408,7 +409,7 @@ function HomePage() {
           <div className="mt-10 space-y-3">
             {faqs.map((f, i) => (
               <div key={f.q} className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
-                <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="flex w-full items-center justify-between gap-4 p-5 text-left">
+                <button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i} className="flex w-full items-center justify-between gap-4 p-5 text-left">
                   <span className="font-semibold">{f.q}</span>
                   <ChevronDown className={`h-5 w-5 shrink-0 text-primary transition ${openFaq === i ? "rotate-180" : ""}`} />
                 </button>
@@ -466,7 +467,7 @@ function HomePage() {
                 <div className="sm:col-span-2">
                   <Label htmlFor="h-service" className="text-white/85">Service Required</Label>
                   <select id="h-service" required className="mt-2 flex h-9 w-full rounded-md border border-white/20 bg-white/10 px-3 py-1 text-sm text-white">
-                    {["ServiceNow Consulting", "AI Solutions", "Software Development", "IT Consulting", "Road Construction", "Residential Construction", "Commercial Construction", "Industrial Projects", "Other"].map((s) => <option key={s} className="text-foreground">{s}</option>)}
+                    {["ServiceNow Consulting", "AI Solutions", "Software Development", "IT Consulting", "Road Construction", "Residential Construction", "Government Projects", "Industrial Projects", "Other"].map((s) => <option key={s} className="text-foreground">{s}</option>)}
                   </select>
                 </div>
                 <div className="sm:col-span-2"><Label htmlFor="h-msg" className="text-white/85">Message</Label><Textarea id="h-msg" rows={4} required className="mt-2 border-white/20 bg-white/10 text-white placeholder:text-white/40" placeholder="Tell us about your project…" /></div>

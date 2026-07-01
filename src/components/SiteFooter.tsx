@@ -11,7 +11,7 @@ const serviceLinks = [
   { label: "IT Consulting", slug: "it-consulting" },
   { label: "Road Construction", slug: "road-construction" },
   { label: "Residential Construction", slug: "residential-construction" },
-  { label: "Commercial Construction", slug: "commercial-construction" },
+  { label: "Government Projects", slug: "government-projects" },
   { label: "Industrial Projects", slug: "industrial-projects" },
 ];
 

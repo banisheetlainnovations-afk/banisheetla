@@ -114,6 +114,39 @@
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+
+  /* Skip-to-content link — visible only on keyboard focus, positioned at top */
+  .skip-to-content {
+    position: absolute;
+    left: 1rem;
+    top: -999px;
+    z-index: 9999;
+    padding: 0.5rem 1.25rem;
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border-radius: 0 0 0.5rem 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: top 0.1s;
+  }
+  .skip-to-content:focus { top: 0; }
+
+  /* Native <select> elements don't inherit Tailwind's focus-visible ring */
+  select:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  /* Respect prefers-reduced-motion for all animations */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 @layer utilities {

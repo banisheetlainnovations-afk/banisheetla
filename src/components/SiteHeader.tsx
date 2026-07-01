@@ -30,7 +30,7 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-7 lg:flex">
           {nav.map((item) => (
             <Link
               key={item.to}
@@ -54,6 +54,7 @@ export function SiteHeader() {
           className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground hover:bg-muted"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
