@@ -5,11 +5,11 @@ import {
   Layers, CheckCircle2, ChevronDown, Quote, Star, MapPin, Mail,
   PhoneCall, ClipboardCheck, Rocket, LifeBuoy,
 } from "lucide-react";
-import heroBg from "@/assets/hero-construction.webp";
-import techIllustration from "@/assets/tech-illustration.webp";
+import heroBg from "@/assets/tech-illustration.webp";
 import projConstruction from "@/assets/project-construction.webp";
 import projDigital from "@/assets/project-digital.webp";
 import projEnterprise from "@/assets/project-enterprise.webp";
+import projInfra from "@/assets/about.webp";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -17,12 +17,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { absUrl, DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { services } from "@/lib/services-data";
+import { COMPANY } from "@/lib/constants";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Banisheetla Innovations (BSI) — Innovate • Build • Elevate" },
-      { name: "description", content: "BSI delivers road & building construction, plus website, app and software development. One company. Endless solutions." },
+      { name: "description", content: "BSI delivers IT consulting, ServiceNow, AI solutions, software development, and construction services. One company, diverse capabilities." },
       { property: "og:title", content: "Banisheetla Innovations — Building Tomorrow" },
       { property: "og:description", content: "Construction and IT solutions under one roof." },
       { property: "og:url", content: absUrl("/") },
@@ -117,7 +118,7 @@ const reasons = [
 const projects = [
   { img: projConstruction, cat: "Road Construction", t: "State Highway Resurfacing", d: "12 km arterial road resurfaced and widened.", status: "Completed" },
   { img: projEnterprise, cat: "Building Construction", t: "Commercial Office Block", d: "G+5 mixed-use commercial building delivery.", status: "Ongoing" },
-  { img: projConstruction, cat: "Infrastructure", t: "Industrial Access Roads", d: "Heavy-load access network for an industrial park.", status: "Completed" },
+  { img: projInfra, cat: "Infrastructure", t: "Industrial Access Roads", d: "Heavy-load access network for an industrial park.", status: "Completed" },
   { img: projDigital, cat: "Technology Projects", t: "Enterprise Web Platform", d: "Customer portal with cloud-native architecture.", status: "Delivered" },
   { img: projEnterprise, cat: "Construction", t: "Site Earthworks & Levelling", d: "Heavy machinery deployed for 40-acre industrial site preparation.", status: "Completed" },
   { img: projDigital, cat: "Technology Projects", t: "Mobile App for Field Ops", d: "Native iOS/Android app for field reporting.", status: "Delivered" },
@@ -158,22 +159,25 @@ function HomePage() {
     <>
       {/* HERO */}
       <section className="relative isolate overflow-hidden">
-        <img src={heroBg} alt="BSI construction and technology" width={1920} height={1080} fetchPriority="high" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.14_0.05_255)]/95 via-[oklch(0.18_0.07_240)]/85 to-[oklch(0.22_0.09_220)]/70" />
+        <img src={heroBg} alt="BSI technology and digital innovation" width={1920} height={1080} fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-center" />
+        {/* Deeper, cooler gradient to give a premium tech/SaaS feel */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.10_0.06_265)]/97 via-[oklch(0.14_0.08_255)]/90 to-[oklch(0.20_0.12_230)]/75" />
+        {/* Subtle animated grid overlay for tech atmosphere */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(var(--color-gold) 1px, transparent 1px), linear-gradient(90deg, var(--color-gold) 1px, transparent 1px)", backgroundSize: "60px 60px" }} aria-hidden="true" />
         <div className="relative mx-auto flex min-h-[720px] max-w-7xl flex-col justify-center px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-gold)]/40 bg-white/5 px-3 py-1 text-xs font-medium text-[var(--color-gold)] backdrop-blur animate-fade-in">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-gold)] animate-pulse" />
-              Innovate • Build • Elevate
+              ServiceNow • AI Solutions • Software Development
             </div>
             <h1 className="mt-5 font-display text-5xl font-black leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-8xl animate-fade-up">
-              BUILDING <span className="text-gradient-gold">TOMORROW</span>
+              INNOVATE <span className="text-gradient-gold">DIGITALLY</span>
             </h1>
             <p className="mt-6 max-w-2xl text-xl font-medium text-white/90 animate-fade-up" style={{ animationDelay: "0.1s" }}>
-              From Roads & Buildings to Technology & Business Solutions
+              IT Consulting, ServiceNow, AI Solutions & Construction — all under one roof.
             </p>
             <p className="mt-3 max-w-2xl text-base text-white/70 animate-fade-up" style={{ animationDelay: "0.15s" }}>
-              One Company. Endless Solutions.
+              One Company. Diverse Capabilities. Endless Solutions.
             </p>
             <div className="mt-9 flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: "0.2s" }}>
               <Button asChild size="lg" variant="hero">
@@ -365,7 +369,7 @@ function HomePage() {
           </div>
           <div className="relative">
             <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[var(--color-gold)]/20 to-accent/20 blur-2xl" />
-            <img src={techIllustration} alt="Technology illustration" loading="lazy" width={1280} height={1024} className="relative rounded-2xl border border-white/10 shadow-elegant" />
+            <img src={heroBg} alt="Technology illustration" loading="lazy" width={1280} height={1024} className="relative rounded-2xl border border-white/10 shadow-elegant" />
           </div>
         </div>
       </section>
@@ -433,10 +437,10 @@ function HomePage() {
               <div className="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur">
                 <h3 className="font-display text-lg font-bold">Reach Us</h3>
                 <ul className="mt-4 space-y-4 text-sm text-white/85">
-                  <li className="flex items-start gap-3"><Phone className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><a href="tel:+919301103436" className="hover:text-[var(--color-gold)]">+91 9301103436</a></li>
-                  <li className="flex items-start gap-3"><MessageCircle className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><a href="https://wa.me/919301103436" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-gold)]">WhatsApp +91 9301103436</a></li>
-                  <li className="flex items-start gap-3"><Mail className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><a href="mailto:info@banisheetla.com" className="break-all hover:text-[var(--color-gold)]">info@banisheetla.com</a></li>
-                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><span>H.N. 61, Kunkuri Khurd, Kotchhal, Pratapgarh, Mainpat, Surguja (C.G.), Ambikapur, India 497114</span></li>
+                  <li className="flex items-start gap-3"><Phone className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><a href={COMPANY.phoneTel} className="hover:text-[var(--color-gold)]">{COMPANY.phone}</a></li>
+                  <li className="flex items-start gap-3"><MessageCircle className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><a href={COMPANY.whatsappBase} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-gold)]">WhatsApp {COMPANY.phone}</a></li>
+                  <li className="flex items-start gap-3"><Mail className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><a href={COMPANY.emailHref} className="break-all hover:text-[var(--color-gold)]">{COMPANY.email}</a></li>
+                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><span>{COMPANY.addressFull}</span></li>
                 </ul>
               </div>
               <div className="overflow-hidden rounded-2xl border border-white/15">
@@ -450,32 +454,45 @@ function HomePage() {
             </aside>
             <form
               className="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur sm:p-8 lg:col-span-3"
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
                 setSending(true);
-                setTimeout(() => {
-                  setSending(false);
+                const fd = new FormData(e.currentTarget);
+                try {
+                  const { supabase } = await import("@/integrations/supabase/client");
+                  const { error } = await supabase.from("contact_submissions").insert({
+                    name:    String(fd.get("name") ?? ""),
+                    phone:   String(fd.get("phone") ?? ""),
+                    email:   String(fd.get("email") ?? ""),
+                    service: String(fd.get("service") ?? ""),
+                    message: String(fd.get("message") ?? ""),
+                  });
+                  if (error) throw error;
                   toast.success("Request received", { description: "Our team will reach out within one business day." });
                   (e.target as HTMLFormElement).reset();
-                }, 700);
+                } catch {
+                  toast.error("Something went wrong", { description: "Please try WhatsApp or email us directly." });
+                } finally {
+                  setSending(false);
+                }
               }}
             >
               <div className="grid gap-4 sm:grid-cols-2">
-                <div><Label htmlFor="h-name" className="text-white/85">Name</Label><Input id="h-name" required className="mt-2 border-white/20 bg-white/10 text-white placeholder:text-white/40" /></div>
-                <div><Label htmlFor="h-phone" className="text-white/85">Phone</Label><Input id="h-phone" type="tel" required className="mt-2 border-white/20 bg-white/10 text-white placeholder:text-white/40" /></div>
-                <div className="sm:col-span-2"><Label htmlFor="h-email" className="text-white/85">Email</Label><Input id="h-email" type="email" required className="mt-2 border-white/20 bg-white/10 text-white placeholder:text-white/40" /></div>
+                <div><Label htmlFor="h-name" className="text-white/85">Name</Label><Input id="h-name" name="name" required className="mt-2 border-white/20 bg-white/10 text-white placeholder:text-white/40" /></div>
+                <div><Label htmlFor="h-phone" className="text-white/85">Phone</Label><Input id="h-phone" name="phone" type="tel" required className="mt-2 border-white/20 bg-white/10 text-white placeholder:text-white/40" /></div>
+                <div className="sm:col-span-2"><Label htmlFor="h-email" className="text-white/85">Email</Label><Input id="h-email" name="email" type="email" required className="mt-2 border-white/20 bg-white/10 text-white placeholder:text-white/40" /></div>
                 <div className="sm:col-span-2">
                   <Label htmlFor="h-service" className="text-white/85">Service Required</Label>
-                  <select id="h-service" required className="mt-2 flex h-9 w-full rounded-md border border-white/20 bg-white/10 px-3 py-1 text-sm text-white">
+                  <select id="h-service" name="service" required className="mt-2 flex h-9 w-full rounded-md border border-white/20 bg-white/10 px-3 py-1 text-sm text-white">
                     {["ServiceNow Consulting", "AI Solutions", "Software Development", "IT Consulting", "Road Construction", "Residential Construction", "Government Projects", "Industrial Projects", "Other"].map((s) => <option key={s} className="text-foreground">{s}</option>)}
                   </select>
                 </div>
-                <div className="sm:col-span-2"><Label htmlFor="h-msg" className="text-white/85">Message</Label><Textarea id="h-msg" rows={4} required className="mt-2 border-white/20 bg-white/10 text-white placeholder:text-white/40" placeholder="Tell us about your project…" /></div>
+                <div className="sm:col-span-2"><Label htmlFor="h-msg" className="text-white/85">Message</Label><Textarea id="h-msg" name="message" rows={4} required className="mt-2 border-white/20 bg-white/10 text-white placeholder:text-white/40" placeholder="Tell us about your project…" /></div>
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button type="submit" size="lg" variant="hero" disabled={sending}>{sending ? "Sending…" : "Request Quote"}</Button>
                 <Button asChild type="button" size="lg" variant="outline" className="border-[#25D366]/60 bg-[#25D366]/10 text-white hover:bg-[#25D366]/20 hover:text-white">
-                  <a href="https://wa.me/919301103436?text=Hi%20BSI%2C%20I%27d%20like%20a%20quote." target="_blank" rel="noopener noreferrer">
+                  <a href={COMPANY.whatsapp} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="mr-1 h-4 w-4" /> WhatsApp Now
                   </a>
                 </Button>

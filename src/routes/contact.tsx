@@ -63,31 +63,44 @@ function ContactPage() {
 
           <form
             className="rounded-2xl border border-border bg-card p-8 shadow-card lg:col-span-2"
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
               setSending(true);
-              setTimeout(() => {
-                setSending(false);
+              const fd = new FormData(e.currentTarget);
+              try {
+                const { supabase } = await import("@/integrations/supabase/client");
+                const { error } = await supabase.from("contact_submissions").insert({
+                  name:    String(fd.get("name") ?? ""),
+                  phone:   String(fd.get("phone") ?? ""),
+                  email:   String(fd.get("email") ?? ""),
+                  service: String(fd.get("service") ?? ""),
+                  message: String(fd.get("message") ?? ""),
+                });
+                if (error) throw error;
                 toast.success("Message sent", { description: "We'll get back to you shortly." });
                 (e.target as HTMLFormElement).reset();
-              }, 800);
+              } catch {
+                toast.error("Something went wrong", { description: "Please try WhatsApp or email us directly." });
+              } finally {
+                setSending(false);
+              }
             }}
           >
             <h2 className="font-display text-2xl font-bold">Request a Quote</h2>
             <div className="mt-6 grid gap-5 sm:grid-cols-2">
-              <div><Label htmlFor="c-name">Name</Label><Input id="c-name" required className="mt-2" /></div>
-              <div><Label htmlFor="c-phone">Phone</Label><Input id="c-phone" type="tel" required className="mt-2" /></div>
-              <div><Label htmlFor="c-email">Email</Label><Input id="c-email" type="email" required className="mt-2" /></div>
-              <div><Label htmlFor="c-company">Company (optional)</Label><Input id="c-company" className="mt-2" /></div>
+              <div><Label htmlFor="c-name">Name</Label><Input id="c-name" name="name" required className="mt-2" /></div>
+              <div><Label htmlFor="c-phone">Phone</Label><Input id="c-phone" name="phone" type="tel" required className="mt-2" /></div>
+              <div><Label htmlFor="c-email">Email</Label><Input id="c-email" name="email" type="email" required className="mt-2" /></div>
+              <div><Label htmlFor="c-company">Company (optional)</Label><Input id="c-company" name="company" className="mt-2" /></div>
               <div className="sm:col-span-2">
                 <Label htmlFor="c-service">Service Required</Label>
-                <select id="c-service" required className="mt-2 flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm">
+                <select id="c-service" name="service" required className="mt-2 flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm">
                   {services.map((s) => <option key={s}>{s}</option>)}
                 </select>
               </div>
               <div className="sm:col-span-2">
                 <Label htmlFor="c-msg">Message</Label>
-                <Textarea id="c-msg" rows={5} required className="mt-2" placeholder="Tell us about your project, scope and timeline…" />
+                <Textarea id="c-msg" name="message" rows={5} required className="mt-2" placeholder="Tell us about your project, scope and timeline…" />
               </div>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
