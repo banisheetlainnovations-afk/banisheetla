@@ -47,7 +47,7 @@ function ServicesPage() {
                   <h2 className="font-display text-2xl font-bold sm:text-3xl">{g.title}</h2>
                 </div>
               </div>
-              <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 {items.map((it) => (
                   <div key={it.slug} className="group rounded-2xl border border-border bg-card p-6 shadow-card transition hover:-translate-y-1 hover:shadow-elegant">
                     <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-secondary text-primary">

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Briefcase, GraduationCap, TrendingUp, Clock4, Upload } from "lucide-react";
+import { Briefcase, GraduationCap, TrendingUp, Clock4 } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -24,7 +24,24 @@ export const Route = createFileRoute("/careers")({
   component: CareersPage,
 });
 
-const roles = ["Project Manager", "Business Analyst", "Construction Project Engineer"];
+const roles = [
+  "Operations Manager",
+  "Project Manager",
+  "Sales Executive",
+  "Business Analyst",
+  "Solution Architect",
+  "Software Developer",
+  "QA Engineer",
+  "DevOps Engineer",
+  "UI/UX Designer",
+  "Sales Executive",
+  "Business Development Manager (BDM)",
+  "HR Executive",
+  "Finance & Accounts Executive",
+  "Civil Engineer",
+  "Site Engineer",
+];
+
 const benefits = [
   { icon: TrendingUp, title: "Competitive Compensation" },
   { icon: GraduationCap, title: "Learning & Development" },
@@ -40,7 +57,7 @@ function CareersPage() {
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold sm:text-4xl">Current Opportunities</h2>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {roles.map((r) => (
             <div key={r} className="rounded-xl border border-border bg-card p-6 shadow-card transition hover:border-primary/40 hover:shadow-elegant">
               <Briefcase className="h-6 w-6 text-primary-glow" />
@@ -87,18 +104,12 @@ function CareersPage() {
             <div>
               <Label htmlFor="position">Position</Label>
               <select id="position" required className="mt-2 flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm">
+                <option value="">Select a position…</option>
                 {roles.map((r) => <option key={r}>{r}</option>)}
               </select>
             </div>
           </div>
-          <div>
-            <Label htmlFor="resume">Resume Upload</Label>
-            <label htmlFor="resume" className="mt-2 flex cursor-pointer items-center justify-center gap-2 rounded-md border border-dashed border-input bg-background px-4 py-6 text-sm text-muted-foreground hover:border-primary/40">
-              <Upload className="h-4 w-4" /> Click to upload PDF/DOC
-            </label>
-            <input id="resume" type="file" accept=".pdf,.doc,.docx" className="sr-only" />
-          </div>
-          <div><Label htmlFor="message">Message</Label><Textarea id="message" rows={4} className="mt-2" /></div>
+          <div><Label htmlFor="message">Message</Label><Textarea id="message" rows={4} className="mt-2" placeholder="Tell us about yourself, your experience, and why you want to join BSI…" /></div>
           <Button type="submit" variant="hero" size="lg" disabled={submitting}>{submitting ? "Submitting…" : "Submit Application"}</Button>
         </form>
       </section>

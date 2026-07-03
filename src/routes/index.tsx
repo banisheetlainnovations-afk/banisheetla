@@ -95,9 +95,9 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 
 /* ---------------- Data ---------------- */
 const heroStats = [
-  { n: 500, s: "+", l: "Projects" },
-  { n: 100, s: "+", l: "Clients" },
-  { n: 25,  s: "+", l: "Team Members" },
+  { n: 15,  s: "+", l: "Projects" },
+  { n: 10,  s: "+", l: "Clients" },
+  { n: 20,  s: "+", l: "Team Members" },
   { n: 100, s: "%", l: "Commitment" },
 ];
 
@@ -238,7 +238,7 @@ function HomePage() {
                     <p className="mt-1 text-sm text-muted-foreground">{g.blurb}</p>
                   </div>
                 </div>
-                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                   {services.filter((s) => s.category === g.title).map((s) => (
                     <Link key={s.slug} to="/services/$slug" params={{ slug: s.slug }} className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-card transition hover:-translate-y-1 hover:shadow-elegant">
                       <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-primary opacity-10 transition group-hover:scale-150" />
