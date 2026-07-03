@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const nav = [
@@ -12,6 +12,10 @@ const nav = [
   { to: "/blog", label: "Blog" },
   { to: "/contact", label: "Contact" },
 ] as const;
+
+// Jan Mitra is a separate website — kept as an external constant so the URL
+// can be updated in one place if the domain ever changes.
+const JAN_MITRA_URL = "https://jan-mitra-mu.vercel.app";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -30,6 +34,7 @@ export function SiteHeader() {
           </div>
         </Link>
 
+        {/* ── Desktop Navigation ── */}
         <nav aria-label="Main navigation" className="hidden items-center gap-7 lg:flex">
           {nav.map((item) => (
             <Link
@@ -42,6 +47,17 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          {/* Jan Mitra — external link, same font/size/hover as internal nav items */}
+          <a
+            href={JAN_MITRA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Jan Mitra (opens in new tab)"
+            className="inline-flex items-center gap-1 text-sm font-medium text-foreground/75 transition-colors hover:text-primary"
+          >
+            Jan Mitra
+            <ExternalLink className="h-3 w-3 opacity-60" aria-hidden="true" />
+          </a>
         </nav>
 
         <div className="hidden lg:block">
@@ -60,6 +76,7 @@ export function SiteHeader() {
         </button>
       </div>
 
+      {/* ── Mobile Navigation ── */}
       {open && (
         <div className="lg:hidden border-t border-border bg-background">
           <div className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
@@ -75,6 +92,18 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
+            {/* Jan Mitra — external link in mobile menu, same style as internal items */}
+            <a
+              href={JAN_MITRA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              aria-label="Jan Mitra (opens in new tab)"
+              className="inline-flex items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-foreground/80 hover:bg-muted"
+            >
+              Jan Mitra
+              <ExternalLink className="h-4 w-4 opacity-60" aria-hidden="true" />
+            </a>
             <Button asChild className="mt-2" variant="hero">
               <Link to="/contact" onClick={() => setOpen(false)}>Get a Quote</Link>
             </Button>
