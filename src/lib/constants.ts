@@ -1,10 +1,10 @@
 export const COMPANY = {
   name: "Banisheetla Innovations Private Limited",
   shortName: "BSI",
-  phone: "+91 9301103436",
-  phoneTel: "tel:+919301103436",
-  whatsapp: "https://wa.me/919301103436?text=Hi%20BSI%2C%20I%27d%20like%20a%20quote.",
-  whatsappBase: "https://wa.me/919301103436",
+  phone: "+91 8717835363",
+  phoneTel: "tel:+918717835363",
+  whatsapp: "https://wa.me/918717835363?text=Hi%20BSI%2C%20I%27d%20like%20a%20quote.",
+  whatsappBase: "https://wa.me/918717835363",
   email: "info@banisheetla.com",
   emailHref: "mailto:info@banisheetla.com",
   addressShort: "Kunkuri Khurd, Mainpat, Surguja (C.G.) 497114",
@@ -12,7 +12,7 @@ export const COMPANY = {
   mapEmbed: "https://www.google.com/maps?q=Mainpat,+Surguja,+Chhattisgarh&output=embed",
   cin: "U62090CT2026PTC020047",
   gstin: "22AAOCB6050G1ZV",
-  linkedin: "https://www.linkedin.com/in/banisheetla-innovations-private-limited-969368411",
+  linkedin: "https://www.linkedin.com/in/bsiinnovationspvtltd",
   instagram: "https://www.instagram.com/bs.innovationsofficial",
   copyrightYear: () => new Date().getFullYear(),
 } as const;

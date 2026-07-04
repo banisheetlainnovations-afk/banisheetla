@@ -32,13 +32,13 @@ export const organizationSchema = {
   },
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+91-9301103436",
+    telephone: "+91-8717835363",
     contactType: "customer service",
     email: "info@banisheetla.com",
     areaServed: "IN",
   },
   sameAs: [
-    "https://www.linkedin.com/in/banisheetla-innovations-private-limited-969368411",
+    "https://www.linkedin.com/in/bsiinnovationspvtltd",
     "https://www.instagram.com/bs.innovationsofficial",
   ],
 };

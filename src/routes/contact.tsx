@@ -39,12 +39,12 @@ function ContactPage() {
               <h2 className="font-display text-xl font-bold">Head Office</h2>
               <p className="mt-2 text-sm text-muted-foreground">Banisheetla Innovations Private Limited</p>
               <ul className="mt-6 space-y-4 text-sm">
-                <li className="flex items-start gap-3"><Phone className="mt-0.5 h-5 w-5 text-accent" /><a href="tel:+919301103436" className="hover:text-primary">+91 9301103436</a></li>
+                <li className="flex items-start gap-3"><Phone className="mt-0.5 h-5 w-5 text-accent" /><a href="tel:+918717835363" className="hover:text-primary">+91 8717835363</a></li>
                 <li className="flex items-start gap-3"><Mail className="mt-0.5 h-5 w-5 text-accent" /><a href="mailto:info@banisheetla.com" className="break-all hover:text-primary">info@banisheetla.com</a></li>
                 <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-5 w-5 text-accent" /><span>H.N. 61, Kunkuri Khurd, Kotchhal, Pratapgarh, Mainpat, Surguja (C.G.), Ambikapur, India 497114</span></li>
               </ul>
               <a
-                href="https://wa.me/919301103436?text=Hi%20BSI%2C%20I%27d%20like%20a%20quote."
+                href="https://wa.me/918717835363?text=Hi%20BSI%2C%20I%27d%20like%20a%20quote."
                 target="_blank" rel="noopener noreferrer"
                 className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
               >
@@ -106,7 +106,7 @@ function ContactPage() {
             <div className="mt-6 flex flex-wrap gap-3">
               <Button type="submit" size="lg" variant="hero" disabled={sending}>{sending ? "Sending…" : "Request Quote"}</Button>
               <a
-                href="https://wa.me/919301103436?text=Hi%20BSI%2C%20I%27d%20like%20a%20quote."
+                href="https://wa.me/918717835363?text=Hi%20BSI%2C%20I%27d%20like%20a%20quote."
                 target="_blank" rel="noopener noreferrer"
                 className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-[#25D366] px-6 text-sm font-semibold text-white transition hover:opacity-90"
               >

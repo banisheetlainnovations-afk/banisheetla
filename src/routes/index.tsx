@@ -166,11 +166,13 @@ function HomePage() {
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(var(--color-gold) 1px, transparent 1px), linear-gradient(90deg, var(--color-gold) 1px, transparent 1px)", backgroundSize: "60px 60px" }} aria-hidden="true" />
         <div className="relative mx-auto flex min-h-[720px] max-w-7xl flex-col justify-center px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <div className="max-w-4xl">
+            {/* Hero Badge Temporarily Hidden
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-gold)]/40 bg-white/5 px-3 py-1 text-xs font-medium text-[var(--color-gold)] backdrop-blur animate-fade-in">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-gold)] animate-pulse" />
               ServiceNow • AI Solutions • Software Development
             </div>
-            <h1 className="mt-5 font-display text-5xl font-black leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-8xl animate-fade-up">
+            */}
+            <h1 className="mt-0 font-display text-5xl font-black leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-8xl animate-fade-up">{/* mt-0: badge hidden, was mt-5 when badge was visible */}
               INNOVATE <span className="text-gradient-gold">DIGITALLY</span>
             </h1>
             <p className="mt-6 max-w-2xl text-xl font-medium text-white/90 animate-fade-up" style={{ animationDelay: "0.1s" }}>
