@@ -1,8 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import {
-  Construction, Wrench, Home, Building2, Factory,
-  Code2, Cpu, Workflow, Sparkles,
-} from "lucide-react";
+import { Code2, Cpu, Workflow, Sparkles } from "lucide-react";
 
 export interface ServiceFaq {
   q: string;
@@ -11,10 +8,9 @@ export interface ServiceFaq {
 
 export interface ServiceDetail {
   slug: string;
-  category: "IT Services" | "Construction Services";
+  category: "IT Services";
   icon: LucideIcon;
   title: string;
-  /** Short one-liner used on the services overview cards */
   tagline: string;
   metaTitle: string;
   metaDescription: string;
@@ -26,7 +22,6 @@ export interface ServiceDetail {
 }
 
 export const services: ServiceDetail[] = [
-  // ---------- IT Services ----------
   {
     slug: "servicenow-consulting",
     category: "IT Services",
@@ -124,141 +119,23 @@ export const services: ServiceDetail[] = [
     metaDescription: "IT consulting covering technology architecture, infrastructure audits, and digital strategy — helping you plan before committing budget to a build.",
     overview: "Before committing budget to a build, it helps to know whether you're solving the right problem with the right architecture. Our consulting engagements give you that clarity first.",
     whatsIncluded: [
-      "Technology architecture planning",
+      "Technology architecture review and recommendations",
       "Infrastructure and security audits",
-      "Vendor and tool evaluation",
-      "Digital transformation roadmaps",
-      "Cost and performance optimization reviews",
-      "Technical due diligence for new initiatives",
+      "Digital transformation strategy",
+      "Vendor and platform evaluation",
+      "Cloud migration planning",
+      "Technical due diligence",
     ],
-    whoItsFor: "Leadership teams making a significant technology decision who want an independent technical opinion first.",
+    whoItsFor: "Teams about to commit budget to a build or migration who want an independent technical assessment first.",
     process: [
-      { step: "Assessment", detail: "Reviewing your current systems, team, and goals." },
-      { step: "Findings", detail: "A clear, prioritized report — not a 100-page document nobody reads." },
-      { step: "Roadmap", detail: "A practical plan with sequencing and rough cost/time estimates." },
-      { step: "Implementation support", detail: "Optional hands-on support if you want us to help execute the plan." },
+      { step: "Assessment", detail: "Reviewing your current architecture, infrastructure, and pain points." },
+      { step: "Recommendations", detail: "A clear, prioritized set of findings and options." },
+      { step: "Roadmap", detail: "A practical plan for what to do next, and in what order." },
+      { step: "Ongoing advisory", detail: "Available as an ongoing technical advisor if needed." },
     ],
     faqs: [
-      { q: "Is this only useful if we're about to build something new?", a: "No — audits and architecture reviews are equally useful for existing systems that feel slow or fragile." },
-      { q: "Will you push us toward your own development services?", a: "Our recommendations are based on what actually solves your problem; if that means a smaller fix instead of a big build, we'll say so." },
-    ],
-  },
-
-  // ---------- Construction Services ----------
-  {
-    slug: "road-construction",
-    category: "Construction Services",
-    icon: Construction,
-    title: "Road Construction",
-    tagline: "Highways, rural roads, and resurfacing projects, including government tenders.",
-    metaTitle: "Road Construction Services | Banisheetla Innovations",
-    metaDescription: "Road construction services including highways, rural road development, and resurfacing projects for government and private contracts.",
-    overview: "Road construction and resurfacing work executed to spec and on schedule — from rural connectivity roads to larger highway segments, including government tender projects.",
-    whatsIncluded: [
-      "New road construction (rural and highway segments)",
-      "Resurfacing and repair of existing roads",
-      "Drainage and shoulder work as part of road projects",
-      "Government tender (PWD/PMGSY-class) project execution",
-      "Materials sourcing and quality testing",
-      "Project documentation for compliance and audits",
-    ],
-    whoItsFor: "Government bodies and private developers needing road infrastructure built or restored to spec.",
-    process: [
-      { step: "Survey & planning", detail: "Site survey, soil testing, and project planning before any work begins." },
-      { step: "Materials & approvals", detail: "Sourcing approved materials and securing necessary clearances." },
-      { step: "Construction", detail: "Phased construction with quality checks at each stage." },
-      { step: "Handover", detail: "Final inspection, documentation, and handover." },
-    ],
-    faqs: [
-      { q: "Do you handle government tender projects?", a: "Yes, we execute government and PWD-class road projects with full project documentation." },
-      { q: "Can you take on resurfacing-only projects, not just new construction?", a: "Yes, repair and resurfacing of existing roads is a regular part of our work." },
-    ],
-  },
-  {
-    slug: "residential-construction",
-    category: "Construction Services",
-    icon: Home,
-    title: "Residential Construction",
-    tagline: "Homes, villas, and apartment blocks, built to spec and on schedule.",
-    metaTitle: "Residential Construction Services | Banisheetla Innovations",
-    metaDescription: "Residential construction services covering individual homes, villas, and apartment blocks, from planning through handover.",
-    overview: "Residential builds handled end-to-end — from individual homes and villas to multi-unit apartment blocks — with clear timelines and transparent costing.",
-    whatsIncluded: [
-      "Individual home and villa construction",
-      "Apartment block / multi-unit development",
-      "Structural design coordination",
-      "Material selection and procurement",
-      "Site supervision through to handover",
-      "Compliance with local building codes",
-    ],
-    whoItsFor: "Individuals and developers building new residential property, from single homes to multi-unit projects.",
-    process: [
-      { step: "Planning", detail: "Design coordination, budgeting, and approvals before breaking ground." },
-      { step: "Foundation & structure", detail: "Core construction phase with regular quality checks." },
-      { step: "Finishing", detail: "Interior and exterior finishing work." },
-      { step: "Handover", detail: "Final walkthrough and documentation." },
-    ],
-    faqs: [
-      { q: "Can you handle approvals and permits too?", a: "We coordinate the construction process around required local approvals and compliance." },
-      { q: "Do you build single homes as well as larger apartment projects?", a: "Yes, we take on both individual homes and multi-unit apartment developments." },
-    ],
-  },
-  {
-    slug: "government-projects",
-    category: "Construction Services",
-    icon: Building2,
-    title: "Government Projects",
-    tagline: "PWD, PMGSY and government-tendered construction delivered to specification.",
-    metaTitle: "Government Construction Projects | Banisheetla Innovations",
-    metaDescription: "Government and public works construction services including PWD, PMGSY, and tendered infrastructure projects delivered on time and to specification across Chhattisgarh.",
-    overview: "Banisheetla Innovations has experience delivering government-tendered construction projects — roads, public buildings, and infrastructure works — with the documentation, compliance, and accountability that government contracts require.",
-    whatsIncluded: [
-      "PWD and PMGSY project execution",
-      "Government tender participation and compliance",
-      "Public infrastructure construction",
-      "Site documentation and measurement books",
-      "Quality control and third-party inspection support",
-      "On-time delivery with government billing procedures",
-    ],
-    whoItsFor: "Government departments, contractors, and agencies requiring a reliable execution partner for tendered public works projects.",
-    process: [
-      { step: "Tender Review", detail: "Reviewing BOQ, specifications, and compliance requirements before bidding." },
-      { step: "Mobilisation", detail: "Site setup, resource planning, and approvals in place before work begins." },
-      { step: "Execution", detail: "Construction carried out to government specifications with proper measurement documentation." },
-      { step: "Handover", detail: "Final inspection, completion certificate, and billing as per government procedures." },
-    ],
-    faqs: [
-      { q: "Do you work on PWD and PMGSY projects?", a: "Yes — we have experience executing PWD and PMGSY road and infrastructure projects with proper documentation and compliance." },
-      { q: "Are you registered as a government contractor?", a: "Yes. Banisheetla Innovations Private Limited (CIN: U62090CT2026PTC020047) is a registered company eligible for government tenders in Chhattisgarh." },
-    ],
-  },
-  {
-    slug: "industrial-projects",
-    category: "Construction Services",
-    icon: Factory,
-    title: "Industrial Projects",
-    tagline: "Factories, warehouses, and access works built for operational demands.",
-    metaTitle: "Industrial Construction Services | Banisheetla Innovations",
-    metaDescription: "Industrial construction services covering factories, warehouses, and access infrastructure, built to operational and safety requirements.",
-    overview: "Industrial builds where load capacity, access, and safety requirements drive every decision — factories, warehouses, and the access works that support them.",
-    whatsIncluded: [
-      "Factory and warehouse construction",
-      "Heavy-load flooring and structural work",
-      "Access road and yard construction",
-      "Utility and drainage infrastructure",
-      "Safety-compliant design coordination",
-      "Project documentation for regulatory compliance",
-    ],
-    whoItsFor: "Manufacturers and logistics operators needing industrial facilities built to operational and safety specifications.",
-    process: [
-      { step: "Requirements gathering", detail: "Understanding load, access, and operational requirements upfront." },
-      { step: "Planning & approvals", detail: "Design coordination and necessary regulatory approvals." },
-      { step: "Construction", detail: "Phased build with safety and quality checks throughout." },
-      { step: "Handover", detail: "Final inspection, certification, and handover documentation." },
-    ],
-    faqs: [
-      { q: "Can you handle heavy-load flooring requirements for machinery?", a: "Yes, structural work is scoped around your actual equipment and load requirements." },
-      { q: "Do you also build the access roads and yard infrastructure?", a: "Yes, access and yard works are typically scoped as part of the same project." },
+      { q: "Do you only consult, or do you also build?", a: "Both — many consulting engagements lead directly into a build with our software development team." },
+      { q: "Can you review an architecture another vendor proposed?", a: "Yes, independent technical review of a proposed architecture or vendor plan is a common request." },
     ],
   },
 ];
