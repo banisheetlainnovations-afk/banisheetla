@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState, useRef, useEffect } from "react";
-import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // ─── Internal navigation links ───────────────────────────────────────────────
@@ -11,16 +11,18 @@ const nav = [
   { to: "/projects", label: "Projects" },
   { to: "/careers",  label: "Careers" },
   { to: "/blog",     label: "Blog" },
+  { to: "/pricing",  label: "Pricing" },
   { to: "/contact",  label: "Contact" },
 ] as const;
 
 // ─── Products dropdown entries ────────────────────────────────────────────────
-// Each product is an external website — new tab, noopener.
+// Jan Mitra is a product of Banisheetla Innovations, not an external site.
+// It links to an internal route so users never leave banisheetla.com.
 const products = [
   {
     label: "Jan Mitra",
-    href: "https://jan-mitra-mu.vercel.app",
-    tagline: "Citizen-first governance platform",
+    to: "/jan-mitra" as const,
+    tagline: "Workflow automation for government & enterprise",
   },
 ] as const;
 
@@ -29,7 +31,6 @@ function ProductsDropdown() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  // Close on outside click
   useEffect(() => {
     function handler(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) {
@@ -40,7 +41,6 @@ function ProductsDropdown() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  // Close on Escape key
   useEffect(() => {
     function handler(e: KeyboardEvent) {
       if (e.key === "Escape") setOpen(false);
@@ -56,7 +56,6 @@ function ProductsDropdown() {
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
-      {/* Trigger — styled exactly like every other nav link */}
       <button
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="true"
@@ -70,41 +69,34 @@ function ProductsDropdown() {
         />
       </button>
 
-      {/* Dropdown panel */}
       {open && (
         <div
           role="menu"
           className="absolute left-0 top-full z-50 mt-2 min-w-[220px] rounded-xl border border-border bg-background shadow-elegant animate-fade-in"
         >
-          {/* Arrow pointer */}
           <div className="absolute -top-1.5 left-4 h-3 w-3 rotate-45 border-l border-t border-border bg-background" aria-hidden="true" />
           <div className="py-2">
             {products.map((p) => (
-              <a
-                key={p.href}
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                key={p.to}
+                to={p.to}
                 role="menuitem"
                 onClick={() => setOpen(false)}
                 className="group flex items-start gap-3 px-4 py-3 transition-colors hover:bg-muted focus-visible:outline-none focus-visible:bg-muted"
               >
-                {/* Product icon dot */}
                 <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary text-[10px] font-bold">
                   JM
                 </span>
                 <span className="flex-1">
                   <span className="flex items-center gap-1 text-sm font-medium text-foreground group-hover:text-primary">
                     {p.label}
-                    <ExternalLink className="h-3 w-3 opacity-50" aria-hidden="true" />
                   </span>
                   <span className="mt-0.5 block text-[11px] text-muted-foreground">
                     {p.tagline}
                   </span>
                 </span>
-              </a>
+              </Link>
             ))}
-            {/* "A product by BSI" badge at the bottom */}
             <div className="mx-4 mt-1 border-t border-border pt-2 pb-1">
               <p className="text-[10px] text-muted-foreground">
                 A product by <span className="font-semibold text-primary">Banisheetla Innovations</span>
@@ -137,11 +129,9 @@ function ProductsAccordion({ onNavigate }: { onNavigate: () => void }) {
       {open && (
         <div id="mobile-products-menu" className="ml-3 mt-1 border-l-2 border-primary/20 pl-3">
           {products.map((p) => (
-            <a
-              key={p.href}
-              href={p.href}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              key={p.to}
+              to={p.to}
               onClick={onNavigate}
               className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-foreground/75 hover:bg-muted hover:text-primary"
             >
@@ -149,8 +139,7 @@ function ProductsAccordion({ onNavigate }: { onNavigate: () => void }) {
                 JM
               </span>
               {p.label}
-              <ExternalLink className="ml-auto h-3 w-3 opacity-40" aria-hidden="true" />
-            </a>
+            </Link>
           ))}
         </div>
       )}
@@ -162,8 +151,6 @@ function ProductsAccordion({ onNavigate }: { onNavigate: () => void }) {
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
-  // Insert "Products" after "Services" in desktop — its position in the nav
-  // array is handled by rendering it manually between Services and Projects.
   const navBefore = nav.filter((n) => ["Home", "About", "Services"].includes(n.label));
   const navAfter  = nav.filter((n) => !["Home", "About", "Services"].includes(n.label));
 
@@ -193,7 +180,6 @@ export function SiteHeader() {
             </Link>
           ))}
 
-          {/* Products dropdown sits between Services and Projects */}
           <ProductsDropdown />
 
           {navAfter.map((item) => (
@@ -243,7 +229,6 @@ export function SiteHeader() {
               </Link>
             ))}
 
-            {/* Products accordion sits between Services and Projects in mobile too */}
             <ProductsAccordion onNavigate={() => setOpen(false)} />
 
             {navAfter.map((item) => (
