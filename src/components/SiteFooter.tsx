@@ -10,10 +10,6 @@ const serviceLinks = [
   { label: "AI Solutions", slug: "ai-solutions" },
   { label: "Software Development", slug: "software-development" },
   { label: "IT Consulting", slug: "it-consulting" },
-  { label: "Road Construction", slug: "road-construction" },
-  { label: "Residential Construction", slug: "residential-construction" },
-  { label: "Government Projects", slug: "government-projects" },
-  { label: "Industrial Projects", slug: "industrial-projects" },
 ];
 
 export function SiteFooter() {
@@ -30,7 +26,7 @@ export function SiteFooter() {
               </div>
             </div>
             <p className="mt-5 max-w-sm text-sm text-white/70">
-              Construction and IT solutions — delivered end-to-end by one accountable partner.
+              Cloud-native SaaS for government and enterprise workflow automation.
             </p>
             <div className="mt-6 flex gap-3">
               {[
@@ -49,7 +45,8 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2.5 text-sm text-white/75">
               <li><Link to="/about" className="hover:text-[var(--color-gold)]">About</Link></li>
               <li><Link to="/services" className="hover:text-[var(--color-gold)]">Services</Link></li>
-              <li><Link to="/projects" className="hover:text-[var(--color-gold)]">Projects</Link></li>
+              <li><Link to="/jan-mitra" className="hover:text-[var(--color-gold)]">Jan Mitra</Link></li>
+              <li><Link to="/pricing" className="hover:text-[var(--color-gold)]">Pricing</Link></li>
               <li><Link to="/careers" className="hover:text-[var(--color-gold)]">Careers</Link></li>
               <li><Link to="/contact" className="hover:text-[var(--color-gold)]">Contact</Link></li>
             </ul>
@@ -63,6 +60,11 @@ export function SiteFooter() {
                   <Link to="/services/$slug" params={{ slug: s.slug }} className="hover:text-[var(--color-gold)]">{s.label}</Link>
                 </li>
               ))}
+            </ul>
+            <h4 className="mt-6 text-xs font-semibold uppercase tracking-wider text-[var(--color-gold)]">Legal</h4>
+            <ul className="mt-4 space-y-2.5 text-sm text-white/75">
+              <li><Link to="/privacy" className="hover:text-[var(--color-gold)]">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-[var(--color-gold)]">Terms of Service</Link></li>
             </ul>
           </div>
 
