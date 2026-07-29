@@ -165,7 +165,7 @@ function HomePage() {
                 <Link to="/jan-mitra">Explore Jan Mitra</Link>
               </Button>
             </div>
-            <dl className="mt-14 grid max-w-3xl grid-cols-2 gap-6 border-t border-white/15 pt-8 sm:grid-cols-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+            <dl className="hidden mt-14 grid max-w-3xl grid-cols-2 gap-6 border-t border-white/15 pt-8 sm:grid-cols-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
               {heroStats.map((s) => (
                 <div key={s.l}>
                   <dt className="font-display text-3xl font-black text-white sm:text-4xl">
