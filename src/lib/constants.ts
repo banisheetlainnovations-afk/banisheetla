@@ -9,7 +9,7 @@ export const COMPANY = {
   emailHref: "mailto:info@banisheetla.com",
   addressShort: "Near Sai Baba College, Banaras Road, Bhagwanpur, Ambikapur, Surguja (C.G.), 497001",
   addressFull: "Near Sai Baba College, Banaras Road, Bhagwanpur, Ambikapur, Surguja (C.G.), 497001",
-  mapEmbed: "https://www.google.com/maps?q=23.1593437,83.1692573&z=16&output=embed",
+  mapEmbed: "https://www.google.com/maps?q=23.159513,83.169095&z=18&output=embed",
   cin: "U62090CT2026PTC020047",
   gstin: "22AAOCB6050G1ZV",
   linkedin: "https://www.linkedin.com/in/bsiinnovationspvtltd",
