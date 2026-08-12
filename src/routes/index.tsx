@@ -393,19 +393,9 @@ function HomePage() {
               <div className="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur">
                 <h3 className="font-display text-lg font-bold">Reach Us</h3>
                 <ul className="mt-4 space-y-4 text-sm text-white/85">
-                  <li className="flex items-start gap-3"><Phone className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><a href={COMPANY.phoneTel} className="hover:text-[var(--color-gold)]">{COMPANY.phone}</a></li>
-                  <li className="flex items-start gap-3"><MessageCircle className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><a href={COMPANY.whatsappBase} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-gold)]">WhatsApp {COMPANY.phone}</a></li>
+                 <li className="flex items-start gap-3"><MessageCircle className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><a href={COMPANY.whatsappBase} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-gold)]">WhatsApp Us</a></li>
                   <li className="flex items-start gap-3"><Mail className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><a href={COMPANY.emailHref} className="break-all hover:text-[var(--color-gold)]">{COMPANY.email}</a></li>
-                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-5 w-5 text-[var(--color-gold)]" /><span>{COMPANY.addressFull}</span></li>
                 </ul>
-              </div>
-              <div className="overflow-hidden rounded-2xl border border-white/15">
-                <iframe
-                  title="BSI Location"
-                  src="https://www.google.com/maps?q=Mainpat,+Surguja,+Chhattisgarh&output=embed"
-                  width="100%" height="220" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-                  style={{ border: 0 }}
-                />
               </div>
             </aside>
             <form
