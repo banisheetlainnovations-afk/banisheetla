@@ -159,11 +159,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 group" onClick={() => setOpen(false)}>
-          <img src="/bsi-logo.png" alt="BSI logo" className="h-9 w-9 rounded-md object-contain" />
-          <div className="leading-tight">
-            <div className="font-display text-sm font-bold tracking-tight text-primary">Banisheetla</div>
-            <div className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">Innovations</div>
-          </div>
+          <img src="/bsi-logo-full.png" alt="Banisheetla Innovations Private Limited" className="h-10 w-auto object-contain" />
         </Link>
 
         {/* ── Desktop Navigation ── */}
