@@ -71,10 +71,8 @@ export function SiteFooter() {
           <div className="lg:col-span-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-gold)]">Contact</h4>
             <ul className="mt-4 space-y-3 text-sm text-white/75">
-              <li className="flex items-start gap-2"><Phone className="mt-0.5 h-4 w-4 text-[var(--color-gold)]" /><a href={COMPANY.phoneTel} className="hover:text-[var(--color-gold)]">{COMPANY.phone}</a></li>
               <li className="flex items-start gap-2"><MessageCircle className="mt-0.5 h-4 w-4 text-[var(--color-gold)]" /><a href={COMPANY.whatsappBase} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-gold)]">WhatsApp</a></li>
               <li className="flex items-start gap-2"><Mail className="mt-0.5 h-4 w-4 text-[var(--color-gold)]" /><a href={COMPANY.emailHref} className="break-all hover:text-[var(--color-gold)]">{COMPANY.email}</a></li>
-              <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 text-[var(--color-gold)]" /><span>{COMPANY.addressShort}</span></li>
             </ul>
             <form onSubmit={(e) => { e.preventDefault(); toast.success("Subscribed", { description: "Thanks — we'll be in touch." }); (e.target as HTMLFormElement).reset(); }} className="mt-6">
               <label htmlFor="footer-newsletter" className="text-xs font-medium text-white/70">Newsletter</label>
