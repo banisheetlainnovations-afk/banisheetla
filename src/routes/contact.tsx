@@ -46,16 +46,8 @@ function ContactPage() {
               <p className="mt-2 text-sm text-muted-foreground">{COMPANY.name}</p>
               <ul className="mt-6 space-y-4 text-sm">
                 <li className="flex items-start gap-3">
-                  <Phone className="mt-0.5 h-5 w-5 text-accent" />
-                  <a href={COMPANY.phoneTel} className="hover:text-primary">{COMPANY.phone}</a>
-                </li>
-                <li className="flex items-start gap-3">
                   <Mail className="mt-0.5 h-5 w-5 text-accent" />
                   <a href={COMPANY.emailHref} className="break-all hover:text-primary">{COMPANY.email}</a>
-                </li>
-                <li className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-5 w-5 text-accent" />
-                  <span>{COMPANY.addressFull}</span>
                 </li>
               </ul>
               <a
@@ -65,14 +57,6 @@ function ContactPage() {
               >
                 WhatsApp Now
               </a>
-            </div>
-            <div className="overflow-hidden rounded-2xl border border-border">
-              <iframe
-                title="BSI Location"
-                src={COMPANY.mapEmbed}
-                width="100%" height="260" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-                style={{ border: 0 }}
-              />
             </div>
           </aside>
 
